@@ -1,0 +1,16 @@
+:root {
+  --title-weight: 700;
+  --heading1-weight: 700;
+  --heading2-weight: 400;
+  --heading3-weight: 700;
+  --heading4-weight: 700;
+  --heading5-weight: 700;
+  --heading6-weight: 700;
+  --subtitle1-weight: 400;
+  --subtitle2-weight: 500;
+  --body1-weight: 400;
+  --body2-weight: 400;
+  --button-weight: 400;
+  --caption-weight: 400;
+  --overline-weight: 400;
+}

@@ -1,0 +1,117 @@
+:root {
+  --title-size-pc: 48px;
+  --title-size-tab: 45px;
+  --title-size-sp: 42px;
+
+  --heading1-size-pc: 36px;
+  --heading1-size-tab: 30px;
+  --heading1-size-sp: 30px;
+
+  --heading2-size-pc: 30px;
+  --heading2-size-tab: 26px;
+  --heading2-size-sp: 26px;
+
+  --heading3-size-pc: 26px;
+  --heading3-size-tab: 22px;
+  --heading3-size-sp: 22px;
+
+  --heading4-size-pc: 24px;
+  --heading4-size-tab: 20px;
+  --heading4-size-sp: 20px;
+
+  --heading5-size-pc: 22px;
+  --heading5-size-tab: 18px;
+  --heading5-size-sp: 18px;
+
+  --heading6-size-pc: 18px;
+  --heading6-size-tab: 16px;
+  --heading6-size-sp: 16px;
+
+  --subtitle1-size-pc: 16px;
+  --subtitle1-size-tab: 16px;
+  --subtitle1-size-sp: 16px;
+
+  --subtitle2-size-pc: 14px;
+  --subtitle2-size-tab: 14px;
+  --subtitle2-size-sp: 14px;
+
+  --body1-size-pc: 16px;
+  --body1-size-tab: 16px;
+  --body1-size-sp: 16px;
+
+  --body2-size-pc: 14px;
+  --body2-size-tab: 14px;
+  --body2-size-sp: 14px;
+
+  --button-size-pc: 14px;
+  --button-size-tab: 14px;
+  --button-size-sp: 14px;
+
+  --caption-size-pc: 12px;
+  --caption-size-tab: 12px;
+  --caption-size-sp: 12px;
+
+  --overline-size-pc: 10px;
+  --overline-size-tab: 10px;
+  --overline-size-sp: 10px;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  :root {
+    --title-size: var(--title-size-sp);
+    --heading1-size: var(--heading1-size-sp);
+    --heading2-size: var(--heading2-size-sp);
+    --heading3-size: var(--heading3-size-sp);
+    --heading4-size: var(--heading4-size-sp);
+    --heading5-size: var(--heading5-size-sp);
+    --heading6-size: var(--heading6-size-sp);
+    --subtitle1-size: var(--subtitle1-size-sp);
+    --subtitle2-size: var(--subtitle2-size-sp);
+    --body1-size: var(--body1-size-sp);
+    --body2-size: var(--body2-size-sp);
+    --button-size: var(--button-size-sp);
+    --caption-size: var(--caption-size-sp);
+    --overline-size: var(--overline-size-sp);
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --title-size: var(--title-size-tab);
+    --heading1-size: var(--heading1-size-tab);
+    --heading2-size: var(--heading2-size-tab);
+    --heading3-size: var(--heading3-size-tab);
+    --heading4-size: var(--heading4-size-tab);
+    --heading5-size: var(--heading5-size-tab);
+    --heading6-size: var(--heading6-size-tab);
+    --subtitle1-size: var(--subtitle1-size-tab);
+    --subtitle2-size: var(--subtitle2-size-tab);
+    --body1-size: var(--body1-size-tab);
+    --body2-size: var(--body2-size-tab);
+    --button-size: var(--button-size-tab);
+    --caption-size: var(--caption-size-tab);
+    --overline-size: var(--overline-size-tab);
+  }
+}
+
+/* pc */
+@media screen and (min-width: 1025px) {
+  :root {
+    --title-size: var(--title-size-pc);
+    --heading1-size: var(--heading1-size-pc);
+    --heading2-size: var(--heading2-size-pc);
+    --heading3-size: var(--heading3-size-pc);
+    --heading4-size: var(--heading4-size-pc);
+    --heading5-size: var(--heading5-size-pc);
+    --heading6-size: var(--heading6-size-pc);
+    --subtitle1-size: var(--subtitle1-size-pc);
+    --subtitle2-size: var(--subtitle2-size-pc);
+    --body1-size: var(--body1-size-pc);
+    --body2-size: var(--body2-size-pc);
+    --button-size: var(--button-size-pc);
+    --caption-size: var(--caption-size-pc);
+    --overline-size: var(--overline-size-pc);
+  }
+}

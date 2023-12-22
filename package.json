@@ -1,0 +1,14 @@
+{
+  "name": "amatelas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:theme": "pnpm --filter @okmtyuta/amatelas-theme build",
+    "build:react": "pnpm --filter @okmtyuta/amatelas-react build",
+    "build": "pnpm build:theme && pnpm build:react"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

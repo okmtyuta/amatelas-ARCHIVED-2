@@ -1,0 +1,40 @@
+{
+  "name": "@okmtyuta/amatelas-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "pnpm --filter @okmtyuta/amatelas-theme build",
+    "build": "pnpm prebuild && vite build && tsc && tsc-alias",
+    "test": "pnpm prebuild && pnpm vitest --watch=false",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "pnpm prebuild && pnpm --filter @okmtyuta/amatelas-theme build && storybook build"
+  },
+  "peerDependencies": {
+    "clsx": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@okmtyuta/amatelas-theme": "workspace:^",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
+}
