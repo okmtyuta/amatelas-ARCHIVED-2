@@ -3,8 +3,16 @@ import { Hex } from '@src/theme/color/classes/Hex'
 import { color } from '@src/theme/color/color'
 import { responsiveFontSize } from '@src/theme/font/responsive-font-size'
 
+const prefixed = filledMaterialTextfieldPrefixed
+
+const _textfield = prefixed()
+const _input = prefixed('input')
+const _placeholder = prefixed('placeholder')
+const _validate = prefixed('validate')
+const _helperText = prefixed('helper-text')
+
 const base = /* css */ `
-.${filledMaterialTextfieldPrefixed()} {
+.${_textfield} {
   --blur-outline-color: gray;
   --focus-outline-color: ${color.info};
   --blur-color: gray;
@@ -14,12 +22,12 @@ const base = /* css */ `
   --error-underline-z-index: 10;
 }
 
-.${filledMaterialTextfieldPrefixed()} {
+.${_textfield} {
   position: relative;
   height: 52px;
   background-color: ${new Hex(color.neutral).getLighten(0.8).getHexString()};
 }
-.${filledMaterialTextfieldPrefixed()}::after {
+.${_textfield}::after {
   border-bottom: 1px solid var(--focus-outline-color);
   left: 0px;
   bottom: 0px;
@@ -29,18 +37,14 @@ const base = /* css */ `
   transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   pointer-events: none;
 }
-.${filledMaterialTextfieldPrefixed()}:has(.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:focus)::after {
+.${_textfield}:has(.${_input}:focus)::after {
   transform: scaleX(1);
 }
-.${filledMaterialTextfieldPrefixed()}:not(:has(.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:focus))::after {
+.${_textfield}:not(:has(.${_input}:focus))::after {
   transform: scaleX(0);
 }
 
-.${filledMaterialTextfieldPrefixed('placeholder')} {
+.${_placeholder} {
   position: absolute;
   margin: 0 12px;
   transform-origin: 0;
@@ -53,9 +57,9 @@ const base = /* css */ `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
 
-  ${responsiveFontSize("body1")}
+  ${responsiveFontSize('body1')}
 }
-.${filledMaterialTextfieldPrefixed('input')} {
+.${_input} {
   position: absolute;
   bottom: 0;
   padding: 13px 12px 0 12px;
@@ -64,49 +68,30 @@ const base = /* css */ `
   z-index: var(--base-z-index);
   border-bottom: var(--blur-outline-color) solid 1px;
 }
-.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:focus + .${filledMaterialTextfieldPrefixed('placeholder')},
-.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:not(:placeholder-shown) + .${filledMaterialTextfieldPrefixed(
-  'placeholder'
-)} {
+.${_input}:focus + .${_placeholder},
+.${_input}:not(:placeholder-shown) + .${_placeholder} {
   transform: scale(0.8);
   top: -2px;
   transition: all var(--transition-time);
   pointer-events: none;
 }
-.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:not(:placeholder-shown):not(:focus) + .${filledMaterialTextfieldPrefixed(
-  'placeholder'
-)} {
+.${_input}:not(:placeholder-shown):not(:focus) + .${_placeholder} {
   color: var(--blur-color);
 }
-.${filledMaterialTextfieldPrefixed(
-  'input'
-)}:focus + .${filledMaterialTextfieldPrefixed('placeholder')} {
+.${_input}:focus + .${_placeholder} {
   color: var(--focus-color);
 }
-
-.${filledMaterialTextfieldPrefixed(
-  'validate'
-)} > .${filledMaterialTextfieldPrefixed('input')}:invalid {
+.${_validate} > .${_input}:invalid {
   border-bottom: ${color.alert} solid 1px;
   z-index: var(--error-underline-z-index);
 }
-.${filledMaterialTextfieldPrefixed(
-  'validate'
-)} > .${filledMaterialTextfieldPrefixed(
-  'input'
-)}:invalid + .${filledMaterialTextfieldPrefixed('placeholder')} {
+.${_validate} > .${_input}:invalid + .${_placeholder} {
   color: ${color.alert};
 }
-
-.${filledMaterialTextfieldPrefixed('helper-text')} {
+.${_helperText} {
   color: gray;
   padding: 4px 12px;
+  ${responsiveFontSize("overline")}
 }
 `
 
