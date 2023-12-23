@@ -3,7 +3,7 @@ packages/markdown/markdown
 packages/aniline/aniline
 packages/amatelas-lit/cdn
 
-# */**/dist
+*/**/dist
 
 .next
 .vscode

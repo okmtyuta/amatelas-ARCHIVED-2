@@ -32,7 +32,7 @@ const colorVariations = () => {
     const hex = new Hex(_code)
     _colorVariations.push(/* css */ `
       .${ripplePrefixed(_color)} {
-        background-color: ${hex.getDarken(0.12).getHexString()};;
+        background-color: ${hex.getDarken(0.12).getHexString()};
       }
     `)
   }

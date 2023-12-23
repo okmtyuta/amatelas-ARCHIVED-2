@@ -1,7 +1,6 @@
 {
   "name": "@okmtyuta/amatelas-theme",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -53,5 +52,8 @@
     "tsx": "^4.6.2",
     "typescript": "^5.0.2",
     "vite": "^5.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
