@@ -24,26 +24,23 @@ const base = /* css */ `
   position: relative;
   height: 52px;
   margin-top: 4px;
-
-  &::after {
-    border-bottom: 1px solid var(--focus-outline-color);
-    left: 0px;
-    bottom: 0px;
-    content: '';
-    position: absolute;
-    right: 0px;
-    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    pointer-events: none;
-  }
-  &:has(.${_input}:focus)::after {
-    transform: scaleX(1);
-  }
-
-  &:not(:has(.${_input}:focus))::after {
-    transform: scaleX(0);
-  }
 }
-
+.${_textfield}::after {
+  border-bottom: 1px solid var(--focus-outline-color);
+  left: 0px;
+  bottom: 0px;
+  content: '';
+  position: absolute;
+  right: 0px;
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  pointer-events: none;
+}
+.${_textfield}:has(.${_input}:focus)::after {
+  transform: scaleX(1);
+}
+.${_textfield}:not(:has(.${_input}:focus))::after {
+  transform: scaleX(0);
+}
 .${_placeholder} {
   position: absolute;
   transform-origin: 0;
@@ -66,7 +63,7 @@ const base = /* css */ `
   height: 100%;
   z-index: var(--base-z-index);
   border-bottom: var(--blur-outline-color) solid 1px;
-  ${responsiveFontSize("body1")}
+  ${responsiveFontSize('body1')}
 }
 .${_input}:focus + .${_placeholder},
 .${_input}:not(:placeholder-shown) + .${_placeholder} {

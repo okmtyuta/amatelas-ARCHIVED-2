@@ -40,7 +40,7 @@ const base = /* css */ `
   padding-right: 6px;
 }
 .${_suffix} {
-  padding-left: 6px;
+  padding: 0 6px;
 }
 .${_textfield}:has(.${_input}:not(:focus)) .${_prefix}, .${_textfield}:has(.${_input}:not(:focus)) .${_suffix} {
   transition: all var(--transition-time);
@@ -69,7 +69,7 @@ const base = /* css */ `
 }
 .${_input}:focus {
   border-bottom: var(--focus-outline-color) solid 1px;
-  ${responsiveFontSize("body1")}
+  ${responsiveFontSize('body1')}
 }
 .${_placeholder} {
   transition: all var(--transition-time);
