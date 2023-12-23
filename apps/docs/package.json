@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "pnpm --filter @okmtyuta/amatelas-react build",
-    "build": "next build",
+    "build": "pnpm prebuild && next build",
     "start": "next start",
     "lint": "next lint"
   },
