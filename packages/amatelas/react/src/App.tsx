@@ -1,14 +1,14 @@
 import '@okmtyuta/amatelas-theme/styles'
 import { Frame } from './components/server/frame'
 // import { MaterialButton } from './components/effective/button'
-import { MaterialPasswordTextField } from './components/effective/password-textfield'
+import { MaterialTextField } from './components/server'
 
 function App() {
   return (
     <Frame>
-      <MaterialPasswordTextField placeholder="placeholder" />
-      <MaterialPasswordTextField placeholder="placeholder" variant="filled" />
-      <MaterialPasswordTextField placeholder="placeholder" variant="outlined" />
+      <MaterialTextField placeholder='placeholder' variant="standard" />
+      <MaterialTextField placeholder='placeholder' variant="outlined" />
+      <MaterialTextField placeholder='placeholder' variant="filled" />
     </Frame>
   )
 }

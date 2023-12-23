@@ -15,8 +15,8 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: {
-        server: resolve(__dirname, 'src/components'),
-        s: resolve(__dirname, 'src/components')
+        server: resolve(__dirname, 'src/components/server'),
+        reactive: resolve(__dirname, 'src/components/reactive')
       }
     },
     rollupOptions: {

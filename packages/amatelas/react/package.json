@@ -1,8 +1,21 @@
 {
   "name": "@okmtyuta/amatelas-react",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
+  "main": "./dist/server.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./server": {
+      "import": "./dist/server.js",
+      "types": "./dist/types/src/components/server/index.d.ts"
+    },
+    "./reactive": {
+      "import": "./dist/reactive.js",
+      "types": "./dist/types/src/components/reactive/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "prebuild": "pnpm --filter @okmtyuta/amatelas-theme build",
@@ -36,5 +49,8 @@
     "tsc-alias": "^1.8.8",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

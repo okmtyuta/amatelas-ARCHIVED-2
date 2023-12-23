@@ -31,7 +31,6 @@ export const MaterialPasswordTextField = ({
   const [_visible, _setVisible] = useState<boolean>(!!visible)
   const _type = _visible ? 'text' : 'password'
 
-  console.log(_visible)
   return (
     <>
       <div
