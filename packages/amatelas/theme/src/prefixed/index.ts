@@ -12,11 +12,6 @@ export {
 export { framePrefixed } from '../generator/components/server/frame/frame-prefixed'
 export { headingPrefixed } from '../generator/components/server/heading/heading-prefixed'
 export {
-  standardMaterialTextfieldPrefixed,
-  outlinedMaterialTextfieldPrefixed,
-  filledMaterialTextfieldPrefixed
-} from '../generator/components/server/textfield/material/material-textfield-prefixed'
-export {
   standardMaterialPasswordTextfieldPrefixed,
   outlinedMaterialPasswordTextfieldPrefixed,
   filledMaterialPasswordTextfieldPrefixed
@@ -36,10 +31,5 @@ export {
   outlinedButtonPrefixed,
   filledButtonPrefixed
 } from '../generator/components/server/button/native/button-prefixed'
-export {
-  standardTextfieldPrefixed,
-  outlinedTextfieldPrefixed,
-  filledTextfieldPrefixed
-} from '../generator/components/server/textfield/native/textfield-prefixed'
 export { paragraphPrefixed } from '../generator/components/server/paragraph/paragraph-prefixed'
 export { ripplePrefixed } from '../generator/effect/ripple/ripple-prefixed'

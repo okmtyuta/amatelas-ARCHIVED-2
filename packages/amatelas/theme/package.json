@@ -13,7 +13,12 @@
   "files": [
     "dist"
   ],
+  "types": "./dist/types/index.d.ts",
   "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
     "./color": {
       "import": "./dist/color.js",
       "types": "./dist/types/theme/color/color.d.ts"

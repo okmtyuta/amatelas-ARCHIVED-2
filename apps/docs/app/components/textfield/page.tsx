@@ -1,12 +1,12 @@
 'use client'
 
 import {
-  MaterialPasswordTextField,
+  PasswordMaterialTextfield,
   PasswordTextfield
 } from '@okmtyuta/amatelas-react/reactive'
 import {
   Heading,
-  MaterialTextField,
+  MaterialTextfield,
   Textfield
 } from '@okmtyuta/amatelas-react/server'
 
@@ -63,18 +63,42 @@ const TextfieldPage = () => {
       <Heading as="h2">Material</Heading>
 
       <div className="stack">
-        <MaterialTextField placeholder="placeholder" variant="standard" />
-        <MaterialTextField placeholder="placeholder" variant="filled" />
-        <MaterialTextField placeholder="placeholder" variant="outlined" />
-      </div>
-
-      <div className="stack">
-        <MaterialPasswordTextField
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
           placeholder="placeholder"
           variant="standard"
         />
-        <MaterialPasswordTextField placeholder="placeholder" variant="filled" />
-        <MaterialPasswordTextField
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="filled"
+        />
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="outlined"
+        />
+      </div>
+
+      <div className="stack">
+        <PasswordMaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="standard"
+        />
+        <PasswordMaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="filled"
+        />
+        <PasswordMaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
           placeholder="placeholder"
           variant="outlined"
         />

@@ -30,7 +30,6 @@ export const getVariant = (variant?: AlertVariant) => {
   return 'info'
 }
 const getAlertColor = (color?: AlertColor, variant?: AlertVariant) => {
-  console.log(color, variant)
   if (color) {
     return color
   }

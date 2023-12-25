@@ -27,15 +27,11 @@ import { frameStyles } from './components/server/frame/frame.css'
 import { listItemStyles } from './components/server/list/list-item.css'
 import { listStyles } from './components/server/list/list.css'
 import { snackStyles } from './components/server/snack/snack.css'
-import { filledMaterialTextfieldStyles } from './components/server/textfield/material/filled-material-textfield.css'
-import { outlinedMaterialTextfieldStyles } from './components/server/textfield/material/outlined-material-textfield.css'
-import { standardMaterialTextfieldStyles } from './components/server/textfield/material/standard-material-textfield.css'
-import { filledTextfieldStyles } from './components/server/textfield/native/filled-material-textfield.css'
-import { outlinedTextfieldStyles } from './components/server/textfield/native/outlined-material-button.css'
-import { standardTextfieldStyles } from './components/server/textfield/native/standard-material-textfield.css'
+
 import { rippleStyles } from './effect/ripple/ripple.css'
 import { paragraphStyles } from './components/server/paragraph/paragraph.css'
 import { headingStyles } from './components/server/heading/heading.css'
+import { textfieldStyles } from './components/server/textfield/textfield.css'
 
 const style = [
   resetStyle,
@@ -67,9 +63,7 @@ const style = [
 
   ...snackStyles(),
 
-  ...standardMaterialTextfieldStyles(),
-  ...outlinedMaterialTextfieldStyles(),
-  ...filledMaterialTextfieldStyles(),
+  ...textfieldStyles(),
 
   ...standardMaterialPasswordTextfieldStyles(),
   ...outlinedMaterialPasswordTextfieldStyles(),
@@ -79,9 +73,9 @@ const style = [
   ...outlinedPasswordTextfieldStyles(),
   ...filledPasswordTextfieldStyles(),
 
-  ...filledTextfieldStyles(),
-  ...outlinedTextfieldStyles(),
-  ...standardTextfieldStyles(),
+  // ...filledTextfieldStyles(),
+  // ...outlinedTextfieldStyles(),
+  // ...standardTextfieldStyles(),
 
   ...paragraphStyles(),
 

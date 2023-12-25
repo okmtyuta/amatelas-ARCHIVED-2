@@ -12,6 +12,7 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: {
+        index: resolve(__dirname, "src/index.ts"),
         prefixed: resolve(__dirname, 'src/prefixed/index.ts'),
         color: resolve(__dirname, 'src/theme/color/color.ts'),
         helper: resolve(__dirname, 'src/helper/index.ts')
