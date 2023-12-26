@@ -29,6 +29,8 @@ type _TextFiledProps = {
   }
 } & DefaultInputProps
 
+const classes = textfieldClasses
+
 export const _Textfield = ({
   validate,
   helper,
@@ -42,7 +44,6 @@ export const _Textfield = ({
   ...props
 }: _TextFiledProps) => {
   const hasPlaceholder = !!props.placeholder && props.placeholder !== ''
-  const classes = textfieldClasses
   const _variant = getTextfieldVariant(variant)
   const _focusColor = getTextfieldFocusColor(focusColor)
   const _errorColor = getTextfieldErrorColor(errorColor)

@@ -1,4 +1,4 @@
-type PrefixType = 'component' | 'effect'
+type PrefixType = 'component' | 'effect' | "keyframes"
 
 export const prefixedBy = (prefix: string, type?: PrefixType) => {
   const prefixed = (target?: string) => {

@@ -1,24 +1,51 @@
+import { prefixedBy } from '@src/helper'
+import { sharedMaterialFormItemClasses } from '../../material-form-item/material-form-item.css'
 
+const _prefixed = prefixedBy('select')
+const _keyframePrefixed = prefixedBy('select', 'keyframes')
+
+const select = _prefixed()
+const options = _prefixed('options')
+const initial = _prefixed('initial')
+const selected = _prefixed('selected')
+const outline = _prefixed('outline')
+const input = _prefixed('input')
+const option = _prefixed('option')
+const material = _prefixed('material')
+const blurBackground = _prefixed('blur-background')
+const insidePlaceholder = _prefixed('inside-placeholder')
+const outsidePlaceholder = _prefixed('outside-placeholder')
+const deleteSVG = _prefixed('delete-svg')
+const as = {
+  input: _prefixed("as-input")
+}
+
+const keyframes = {
+  focus: _keyframePrefixed('focus'),
+  blur: _keyframePrefixed('blur')
+}
+
+const { focus, blur, placeholderShown } = sharedMaterialFormItemClasses
 
 const base = /* css */ `
-.options {
+.${select} .${options} {
   position: absolute;
   top: 58px;
   width: 100%;
   z-index: 10100;
   background-color: white;
 }
-.select:has(.initial) .options {
+.${select}:has(.${initial}) .${options} {
   display: none;
   opacity: 0;
 }
-.select:has(.blur) .options {
-  animation: blur 0.3s forwards;
+.${select}:has(.${blur}) .${options} {
+  animation: ${keyframes.blur} 0.3s forwards;
 }
-.select:has(.focus) .options {
-  animation: focus 0.3s forwards;
+.${select}:has(.${focus}) .${options} {
+  animation: ${keyframes.focus} 0.3s forwards;
 }
-@keyframes focus {
+@keyframes ${keyframes.focus} {
   0% {
     display: none;
     opacity: 0;
@@ -28,7 +55,7 @@ const base = /* css */ `
     opacity: 1;
   }
 }
-@keyframes blur {
+@keyframes ${keyframes.blur} {
   0% {
     display: block;
     opacity: 1;
@@ -39,97 +66,86 @@ const base = /* css */ `
   }
 }
 
-.selected {
+.${selected} {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   padding-left: 10px;
 }
-.select-outline {
+.${outline} {
 }
-.select:not(.focus) .select-outline {
+.${select}:not(.${focus}) .${outline} {
   border: black solid 1px;
 }
-.select.focus .select-outline {
+.${select}.${focus} .${outline} {
   border: blue solid 1px;
 }
 
-.option {
+.${option} {
+  position: relative;
+  overflow: hidden;
   padding: 4px 10px;
   width: 100%;
 }
-.option:hover {
+.${option}:hover {
   padding: 4px 10px;
-  background-color: lightgray;
+  background-color: lightblue;
+}
+.${select}.${material} .${option} {
+  cursor: pointer;
 }
 
-.select.focus .blur-background {
+.${select}:has(.${focus}) .${blurBackground} {
   background-color: transparent;
   position: fixed;
   inset: 0;
   z-index: 10000;
 }
 
-.select:not(.material) .select-input {
+.${select}:not(.${material}) .${input} {
   top: 50%;
   transform: translateY(-50%);
 }
-.select:not(.material) .inside-placeholder {
+.${select}:not(.${material}) .${insidePlaceholder} {
   display: none;
 }
-.select.material .outside-placeholder {
+.${select}.${material} .${outsidePlaceholder} {
   display: none;
 }
-
-.material-form-item {
-  position: relative;
-  height: 58px;
-}
-.material-form-item-outline {
+.${select} .${deleteSVG} {
   position: absolute;
-  border: black solid 1px;
-  inset: 0;
-  pointer-events: none;
-}
-.material-form-item-input {
-  position: absolute;
-  margin-left: 10px;
-  inset: 0;
-}
-.material-form-item .material-form-item-placeholder {
-  position: absolute;
-  margin-left: 10px;
-  transition: 0.3s;
-  transform-origin: 0;
-  pointer-events: none;
-}
-
-.material-form-item:not(:has(.material-form-item-input:focus)):not(
-    :has(.material-form-item-input.focus)
-  )
-  .material-form-item-placeholder,
-.material-form-item:has(.material-form-item-input:placeholder-shown)
-  .material-form-item-placeholder,
-.material-form-item:has(.material-form-item-input.placeholder-shown)
-  .material-form-item-placeholder {
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10200;
+  cursor: pointer;
 }
 
-.material-form-item:has(.material-form-item-input:focus)
-  .material-form-item-placeholder,
-.material-form-item:has(.material-form-item-input.focus)
-  .material-form-item-placeholder,
-.material-form-item:not(:has(.material-form-item-input:placeholder-shown)):not(
-    :has(.material-form-item-input.placeholder-shown)
-  )
-  .material-form-item-placeholder {
-  top: -12px;
-  transform: scale(0.8);
+.${select}.${as.input} .${input} {
+  z-index: 10100;
 }
 `
 
 export const selectStyles = () => {
   const styles = [base]
   return styles
+}
+export const selectClasses = {
+  select,
+  options,
+  initial,
+  selected,
+  outline,
+  input,
+  option,
+  material,
+  blurBackground,
+  insidePlaceholder,
+  outsidePlaceholder,
+  deleteSVG,
+  as,
+
+  blur,
+  focus,
+  placeholderShown
 }

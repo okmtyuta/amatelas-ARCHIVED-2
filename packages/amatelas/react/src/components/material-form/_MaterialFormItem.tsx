@@ -1,3 +1,4 @@
+import { materialFormItemClasses } from '@okmtyuta/amatelas-theme'
 import clsx from 'clsx'
 import { ComponentProps, ElementType } from 'react'
 
@@ -18,6 +19,8 @@ type _MaterialFormItemInputProps<Element extends ElementType> = {
   className?: string
 } & Omit<ComponentProps<Element>, 'tag'>
 
+const classes = materialFormItemClasses
+
 export const _MaterialFormItem = <Element extends ElementType = 'div'>({
   as,
   className,
@@ -25,7 +28,7 @@ export const _MaterialFormItem = <Element extends ElementType = 'div'>({
 }: _MaterialFormItemProps<Element>) => {
   const _Element = as ?? 'div'
   return (
-    <_Element {...props} className={clsx('material-form-item', className)} />
+    <_Element {...props} className={clsx(classes.materialFormItem, className)} />
   )
 }
 export const _MaterialFormItemPlaceholder = <
@@ -39,7 +42,7 @@ export const _MaterialFormItemPlaceholder = <
   return (
     <_Element
       {...props}
-      className={clsx('material-form-item-placeholder', className)}
+      className={clsx(classes.placeholder, className)}
     />
   )
 }
@@ -52,7 +55,7 @@ export const _MaterialFormItemOutline = <Element extends ElementType = 'div'>({
   return (
     <_Element
       {...props}
-      className={clsx('material-form-item-outline', className)}
+      className={clsx(classes.outline, className)}
     />
   )
 }
@@ -65,8 +68,8 @@ export const _MaterialFormItemInput = <Element extends ElementType = 'input'>({
   return (
     <_Element
       {...props}
-      placeholder=' '
-      className={clsx('material-form-item-input', className)}
+      placeholder=" "
+      className={clsx(classes.input, className)}
     />
   )
 }

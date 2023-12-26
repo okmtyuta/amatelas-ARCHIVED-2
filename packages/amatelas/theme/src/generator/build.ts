@@ -22,10 +22,11 @@ import { listItemStyles } from './components/server/list/list-item.css'
 import { listStyles } from './components/server/list/list.css'
 import { snackStyles } from './components/server/snack/snack.css'
 
-import { rippleStyles } from './effect/ripple/ripple.css'
+// import { rippleStyles } from './effect/ripple/ripple.css'
 import { paragraphStyles } from './components/server/paragraph/paragraph.css'
 import { headingStyles } from './components/server/heading/heading.css'
 import { textfieldStyles } from './components/server/textfield/textfield.css'
+import { materialFormItemStyles } from './components/material-form-item/material-form-item.css'
 import { selectStyles } from './components/select/_experimental/select.css'
 
 const style = [
@@ -60,11 +61,13 @@ const style = [
 
   ...textfieldStyles(),
 
+  ...materialFormItemStyles(),
+
   ...selectStyles(),
 
-  ...paragraphStyles(),
+  ...paragraphStyles()
 
-  ...rippleStyles()
+  // ...rippleStyles()
 ]
   .join(' ')
   .replaceAll(/\s+/g, ' ')
