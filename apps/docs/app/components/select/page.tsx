@@ -1,15 +1,11 @@
-import '@okmtyuta/amatelas-theme/styles'
-import { Frame } from './components/server/frame'
-import { Heading } from './components/server'
-import { _Option } from './components/select/_prototype/_Option'
-import { _Select } from './components/select/_prototype/_Select'
+"use client"
 
-import './index.css'
-import './material-form.css'
+import { _Select, _Option } from '@okmtyuta/amatelas-react/reactive'
+import { Heading } from '@okmtyuta/amatelas-react/server'
 
-function App() {
+const SelectPage = () => {
   return (
-    <Frame className="frame">
+    <>
       <Heading as="h1">Select</Heading>
 
       <Heading as="h2">Native</Heading>
@@ -25,8 +21,8 @@ function App() {
         <_Option as="div">Option5</_Option>
         <_Option as="div">Option6</_Option>
       </_Select>
-    </Frame>
+    </>
   )
 }
 
-export default App
+export default SelectPage

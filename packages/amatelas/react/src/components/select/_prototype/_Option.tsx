@@ -1,4 +1,5 @@
-import { ComponentProps, ElementType } from 'react'
+import { ComponentProps, ElementType, useContext } from 'react'
+import { SelectProvider } from '../useSelect/useSelect'
 
 type _OptionProps<Element extends ElementType> = {
   as?: Element
@@ -12,9 +13,22 @@ export const _Option = <Element extends ElementType = 'option'>({
 }: _OptionProps<Element>) => {
   const _Element = as ?? 'option'
   const _label = children
+  const { setSelected, setFocus, setBlur } = useContext(SelectProvider)
+
+  const onSelect = () => {
+    if (setSelected) {
+      setSelected(_label)
+    }
+    if (setFocus) {
+      setFocus(false)
+    }
+    if (setBlur) {
+      setBlur(true)
+    }
+  }
 
   return (
-    <_Element {...props} className="option">
+    <_Element {...props} className="option" onClick={onSelect}>
       {_label}
     </_Element>
   )

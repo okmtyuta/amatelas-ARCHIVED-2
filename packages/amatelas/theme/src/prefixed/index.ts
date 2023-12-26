@@ -12,16 +12,6 @@ export {
 export { framePrefixed } from '../generator/components/server/frame/frame-prefixed'
 export { headingPrefixed } from '../generator/components/server/heading/heading-prefixed'
 export {
-  standardMaterialPasswordTextfieldPrefixed,
-  outlinedMaterialPasswordTextfieldPrefixed,
-  filledMaterialPasswordTextfieldPrefixed
-} from '../generator/components/reactive/password-textfield/material/material-password-textfield-prefixed'
-export {
-  standardPasswordTextfieldPrefixed,
-  outlinedPasswordTextfieldPrefixed,
-  filledPasswordTextfieldPrefixed
-} from '../generator/components/reactive/password-textfield/native/password-textfield-prefixed'
-export {
   standardMaterialButtonPrefixed,
   outlinedMaterialButtonPrefixed,
   filledMaterialButtonPrefixed

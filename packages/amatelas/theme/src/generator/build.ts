@@ -4,12 +4,6 @@ import { resetStyle } from './reset.css'
 import { fontSizeStyle } from './font-size.css'
 import { fontWeightStyle } from './font-weight.css'
 
-import { filledMaterialPasswordTextfieldStyles } from './components/reactive/password-textfield/material/filled-material-password-textfield.css'
-import { outlinedMaterialPasswordTextfieldStyles } from './components/reactive/password-textfield/material/outlined-material-password-textfield.css'
-import { standardMaterialPasswordTextfieldStyles } from './components/reactive/password-textfield/material/standard-material-password-textfield.css'
-import { filledPasswordTextfieldStyles } from './components/reactive/password-textfield/native/filled-password-textfield.css'
-import { outlinedPasswordTextfieldStyles } from './components/reactive/password-textfield/native/outlined-password-textfield.css'
-import { standardPasswordTextfieldStyles } from './components/reactive/password-textfield/native/standard-password-textfield.css'
 import { accordionStyles } from './components/server/accordion/accordion.css'
 import { alertStyles } from './components/server/alert/alert.css'
 import { avatarStyles } from './components/server/avatar/avatar.css'
@@ -32,6 +26,7 @@ import { rippleStyles } from './effect/ripple/ripple.css'
 import { paragraphStyles } from './components/server/paragraph/paragraph.css'
 import { headingStyles } from './components/server/heading/heading.css'
 import { textfieldStyles } from './components/server/textfield/textfield.css'
+import { selectStyles } from './components/select/_experimental/select.css'
 
 const style = [
   resetStyle,
@@ -65,17 +60,7 @@ const style = [
 
   ...textfieldStyles(),
 
-  ...standardMaterialPasswordTextfieldStyles(),
-  ...outlinedMaterialPasswordTextfieldStyles(),
-  ...filledMaterialPasswordTextfieldStyles(),
-
-  ...standardPasswordTextfieldStyles(),
-  ...outlinedPasswordTextfieldStyles(),
-  ...filledPasswordTextfieldStyles(),
-
-  // ...filledTextfieldStyles(),
-  // ...outlinedTextfieldStyles(),
-  // ...standardTextfieldStyles(),
+  ...selectStyles(),
 
   ...paragraphStyles(),
 
