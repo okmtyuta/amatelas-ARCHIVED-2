@@ -1,109 +1,35 @@
-import { ComponentProps, useContext } from 'react'
-import { SelectProvider, useSelect } from '../useSelect/useSelect'
+import { useSelect } from '../useSelect/useSelect'
 import clsx from 'clsx'
 import {
   _MaterialFormItem,
-  _MaterialFormItemInput,
   _MaterialFormItemPlaceholder,
   _MaterialFormItemOutline
 } from '@src/components/material-form/_MaterialFormItem'
 import { CloseSVG } from '@src/svg'
-import { selectClasses } from '@okmtyuta/amatelas-theme'
-
-type DefaultSelectProps = ComponentProps<'select'>
-type DefaultDivProps = ComponentProps<'div'>
-type DefaultInputProps = ComponentProps<'input'>
-type _CommonSelectProps = {
-  as?: 'select' | 'div' | 'input'
-  material?: boolean
-}
-interface _SelectSelectProps extends _CommonSelectProps, DefaultSelectProps {
-  as: 'select'
-}
-interface _DivSelectProps extends _CommonSelectProps, DefaultDivProps {
-  as: 'div'
-}
-interface _InputSelectProps extends _CommonSelectProps, DefaultInputProps {
-  as: 'input'
-}
-
-type _OptionProps = _SelectSelectProps | _DivSelectProps | _InputSelectProps
+import {
+  selectClasses,
+  sharedMaterialFormItemClasses
+} from '@okmtyuta/amatelas-theme'
+import { _SelectProps } from './types'
+import { _SelectInput } from './_SelectInput'
 
 const classes = selectClasses
 
-const _SelectInput = ({ children, ...props }: _OptionProps) => {
-  const {
-    selected,
-    setFocus,
-    setBlur,
-    setQuery,
-    setSelected,
-    query,
-    focus,
-    blur
-  } = useContext(SelectProvider)
-  const onFocus = () => {
-    if (setFocus && setBlur) {
-      setFocus(true)
-      setBlur(false)
-    }
-  }
-  const placeholderShown = !selected && (query === '' || query == null)
-
-  const _selected = selected || ''
-
-  const _onQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    if (setQuery) {
-      setQuery(value)
-    }
-    if (setSelected) {
-      setSelected(value)
-    }
-  }
-  const className = clsx(classes.input, {
-    [classes.placeholderShown]: placeholderShown,
-    [classes.initial]: !focus && !blur,
-    [classes.focus]: focus,
-    [classes.blur]: blur
-  })
-  const _props = {
-    ...props,
-    onClick: onFocus,
-    className: className
-  }
-
-  if (_props.as === 'input') {
-    return (
-      <_MaterialFormItemInput
-        {..._props}
-        value={_selected}
-        onChange={_onQueryChange}
-      />
-    )
-  }
-  if (_props.as === 'select') {
-    return (
-      <_MaterialFormItemInput {..._props}>
-        {props.as === 'select' ? <>{children}</> : null}
-      </_MaterialFormItemInput>
-    )
-  }
-  return <_MaterialFormItemInput {..._props} />
-}
-
-export const _Select = ({ children, material, ...props }: _OptionProps) => {
+export const _Select = ({ children, material, ...props }: _SelectProps) => {
   const {
     SelectProvider,
     setSelected,
     setFocus,
     setBlur,
     setQuery,
+    setFocusedOptionKey,
     selected,
     blur,
     query,
-    focus
+    focus,
+    focusedOptionKey
   } = useSelect()
+
   const _material = !!material
 
   const onBlur = () => {
@@ -122,10 +48,12 @@ export const _Select = ({ children, material, ...props }: _OptionProps) => {
         setFocus,
         setBlur,
         setQuery,
+        setFocusedOptionKey,
         selected,
         query,
         focus,
         blur,
+        focusedOptionKey,
         as: props.as
       }}
     >
@@ -140,19 +68,18 @@ export const _Select = ({ children, material, ...props }: _OptionProps) => {
         </label>
 
         <_MaterialFormItem className={clsx('select-area')}>
-          <CloseSVG
-            className={classes.deleteSVG}
-            onClick={() => {
-              onDelete()
-            }}
-          />
-          <_MaterialFormItemPlaceholder className={classes.insidePlaceholder}>
-            {props.placeholder}
-          </_MaterialFormItemPlaceholder>
+          <CloseSVG className={classes.deleteSVG} onClick={onDelete} />
+          {props.placeholder && (
+            <_MaterialFormItemPlaceholder className={classes.insidePlaceholder}>
+              {props.placeholder}
+            </_MaterialFormItemPlaceholder>
+          )}
 
           <_SelectInput {...props} children={children} />
           {props.as === 'div' && (
-            <div className={classes.selected}>{selected}</div>
+            <div className={sharedMaterialFormItemClasses.value}>
+              {selected}
+            </div>
           )}
           {_material && <div className={classes.options}>{children}</div>}
 

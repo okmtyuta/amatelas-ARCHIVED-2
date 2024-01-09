@@ -4,65 +4,58 @@ import { Heading } from './components/server'
 import { _Option } from './components/select/_prototype/_Option'
 import { _Select } from './components/select/_prototype/_Select'
 
+import './index.css'
+import {
+  _MaterialFormItem,
+  _MaterialFormItemInput,
+  _MaterialFormItemOutline,
+  _MaterialFormItemPlaceholder
+} from './components/material-form/_MaterialFormItem'
+
 function App() {
   return (
     <Frame className="frame">
+      <Heading as="h1">Material From Item</Heading>
+
+      <div style={{ display: 'flex' }}>
+        <div>prefix</div>
+        <_MaterialFormItem variant="outlined" round={{ topLeft: true }}>
+          <_MaterialFormItemPlaceholder>
+            PLACEHOLDER
+          </_MaterialFormItemPlaceholder>
+          <_MaterialFormItemOutline />
+          <_MaterialFormItemInput />
+        </_MaterialFormItem>
+        <div>suffix</div>
+      </div>
+      <_MaterialFormItem variant="filled">
+        <_MaterialFormItemPlaceholder>PLACEHOLDER</_MaterialFormItemPlaceholder>
+        <_MaterialFormItemOutline />
+        <_MaterialFormItemInput />
+      </_MaterialFormItem>
+      <_MaterialFormItem variant="filled">
+        <_MaterialFormItemOutline />
+        <_MaterialFormItemInput />
+      </_MaterialFormItem>
       <Heading as="h1">Select</Heading>
 
       <Heading as="h2">Native</Heading>
       <_Select as="select" placeholder="placeholder">
-        <_Option type="native">Option1</_Option>
-        <_Option type="native">Option2</_Option>
-        <_Option type="native">Option3</_Option>
+        <_Option _type="native">Option1</_Option>
+        <_Option _type="native">Option2</_Option>
+        <_Option _type="native">Option3</_Option>
       </_Select>
 
       <Heading as="h2">Material</Heading>
-      <_Select as="input" placeholder="placeholder" material>
-        <_Option type="material" material>
-          raise
-        </_Option>
-        <_Option type="material" material>
-          rise
-        </_Option>
-        <_Option type="material" material>
-          rose
-        </_Option>
-        <_Option type="material" material>
-          rice
-        </_Option>
-        <_Option type="material" material>
-          race
-        </_Option>
-        <_Option type="material" material>
-          mice
-        </_Option>
-        <_Option type="material" material>
-          mouse
-        </_Option>
+      <_Select as="div" material>
+        <_Option _type="material">raise</_Option>
+        <_Option _type="material">rise</_Option>
+        <_Option _type="material">rose</_Option>
+        <_Option _type="material">rice</_Option>
+        <_Option _type="material">race</_Option>
+        <_Option _type="material">mice</_Option>
+        <_Option _type="material">mouse</_Option>
       </_Select>
-      {/* <_Select as="div" placeholder="placeholder" material>
-        <_Option type="material" material>
-          raise
-        </_Option>
-        <_Option type="material" material>
-          rise
-        </_Option>
-        <_Option type="material" material>
-          rose
-        </_Option>
-        <_Option type="material" material>
-          rice
-        </_Option>
-        <_Option type="material" material>
-          race
-        </_Option>
-        <_Option type="material" material>
-          mice
-        </_Option>
-        <_Option type="material" material>
-          mouse
-        </_Option>
-      </_Select> */}
     </Frame>
   )
 }

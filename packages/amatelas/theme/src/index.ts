@@ -1,4 +1,5 @@
-export { selectClasses } from './generator/components/select/_experimental/select.css'
+export { sharedMaterialFormItemClasses } from './generator/components/material-form-item/material-form-item.css'
+export { selectClasses, } from './generator/components/select/_experimental/select.css'
 export { materialFormItemClasses } from './generator/components/material-form-item/material-form-item.css'
 export {
   textfieldPrefixed,

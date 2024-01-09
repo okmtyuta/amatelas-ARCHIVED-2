@@ -1,55 +1,45 @@
-import { ComponentProps, useContext, useRef, useState } from 'react'
+import { useContext, useRef } from 'react'
 import { SelectProvider } from '../useSelect/useSelect'
-import { _Ripple } from '@src/components/ripple/_Ripple'
 import { selectClasses } from '@okmtyuta/amatelas-theme'
-
-type DefaultOptionProps = ComponentProps<'option'>
-type DefaultDivProps = ComponentProps<'div'>
-type _CommonOptionProps = {
-  type: 'material' | 'native'
-  material?: boolean
-}
-interface _OptionOptionProps extends _CommonOptionProps, DefaultOptionProps {
-  type: 'native'
-  children: string
-  material?: false
-}
-interface _DivOptionProps extends _CommonOptionProps, DefaultDivProps {
-  type: 'material'
-  children: string
-  material: true
-}
-
-type ClickEvent = React.MouseEvent<
-  HTMLDivElement | HTMLOptionElement,
-  MouseEvent
->
-type Ripple = {
-  center: {
-    x: number
-    y: number
-  }
-  key: string
-}
+import clsx from 'clsx'
+import { _selectParameters } from './_parameters'
+import { ClickEvent } from '@src/types'
+import { useRipple } from '@src/components/ripple/useRipple'
+import { _OptionProps } from './types'
 
 const classes = selectClasses
+const _parameters = _selectParameters
 
-export const _Option = ({
-  children,
-  material,
-  ...props
-}: _OptionOptionProps | _DivOptionProps) => {
-  const _material = !!material
+export const _Option = ({ children, ...props }: _OptionProps) => {
+  const {
+    setSelected,
+    setFocus,
+    setBlur,
+    setQuery,
+    query,
+    as,
+    focusedOptionKey,
+    setFocusedOptionKey
+  } = useContext(SelectProvider)
+
+  const _material = props._type === 'material'
   const _label = children
-  const _rippleRadius = 100
-  const { setSelected, setFocus, setBlur, setQuery, query, as } =
-    useContext(SelectProvider)
-  const [ripples, setRipples] = useState<Ripple[]>([])
+  const _key = _label
+  const focused = _key === focusedOptionKey
+
   const ref = useRef<HTMLDivElement>(null)
 
-  const onSelect = (e: ClickEvent) => {
+  const { onRipple, Ripples } = useRipple<
+    HTMLDivElement | HTMLOptionElement,
+    HTMLDivElement
+  >(ref, _parameters._rippleRadius)
+
+  const onSelect = (event: ClickEvent<HTMLDivElement | HTMLOptionElement>) => {
     if (setSelected) {
       setSelected(_label)
+    }
+    if (setFocusedOptionKey) {
+      setFocusedOptionKey(_key)
     }
     if (setFocus) {
       setFocus(false)
@@ -60,45 +50,26 @@ export const _Option = ({
     if (setQuery && as === 'input') {
       setTimeout(() => {
         setQuery(_label)
-      }, 300)
+      }, _parameters._querySetDurationOnSelected)
     }
 
-    if (ref.current) {
-      const x =
-        e.clientX - ref.current.getBoundingClientRect().x - _rippleRadius / 2
-      const y =
-        e.clientY - ref.current.getBoundingClientRect().y - _rippleRadius / 2
-
-      const key = crypto.randomUUID()
-
-      setRipples((current) => [...current, { center: { x, y }, key }])
-      setTimeout(() => {
-        setRipples((current) => {
-          return current.filter((ripple) => {
-            return ripple.key !== key
-          })
-        })
-      }, 800)
-    }
+    onRipple(event)
   }
 
-  if (props.type === 'material') {
+  if (props._type === 'material') {
     if (!_label.includes(query || '') && as === 'input') {
-      return <></>
+      return null
     }
+
     return (
-      <div {...props} className={classes.option} onClick={onSelect} ref={ref}>
+      <div
+        {...props}
+        className={clsx(classes.option, { focused })}
+        onClick={onSelect}
+        ref={ref}
+      >
         {_label}
-        {_material &&
-          ripples.map((ripple) => {
-            return (
-              <_Ripple
-                radius={_rippleRadius}
-                center={ripple.center}
-                key={ripple.key}
-              />
-            )
-          })}
+        {_material && <Ripples />}
       </div>
     )
   }

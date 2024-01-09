@@ -1,33 +1,41 @@
-import { createContext, useState } from 'react'
+import { _useMaterialFormItem } from '@src/components/material-form/_useMaterialFormItem'
+import { Dispatch, SetStateAction, createContext, useState } from 'react'
 
 type SelectContext = {
-  setSelected?: React.Dispatch<React.SetStateAction<string | undefined | null>>
+  setSelected?: Dispatch<SetStateAction<string | undefined | null>>
   selected?: string | null
-  setFocus?: React.Dispatch<React.SetStateAction<boolean>>
+  setFocus?: Dispatch<SetStateAction<boolean>>
   focus?: boolean
-  setBlur?: React.Dispatch<React.SetStateAction<boolean>>
+  setBlur?: Dispatch<SetStateAction<boolean>>
   blur?: boolean
-  setQuery?: React.Dispatch<React.SetStateAction<string | undefined | null>>
+  setQuery?: Dispatch<SetStateAction<string | undefined | null>>
   query?: string | null
-  as?: "select" | "input" | "div"
+  setFocusedOptionKey?: Dispatch<SetStateAction<string | null | undefined>>
+  focusedOptionKey?: string | null | undefined
+  as?: 'select' | 'input' | 'div'
 }
 
 export const SelectProvider = createContext<SelectContext>({})
 
 export const useSelect = () => {
+  const { focus, setFocus, blur, setBlur } = _useMaterialFormItem()
+
   const [selected, setSelected] = useState<string | undefined | null>()
-  const [focus, setFocus] = useState<boolean>(false)
-  const [blur, setBlur] = useState<boolean>(false)
   const [query, setQuery] = useState<string | undefined | null>()
+  const [focusedOptionKey, setFocusedOptionKey] = useState<
+    string | undefined | null
+  >()
   return {
     SelectProvider,
     selected,
-    setSelected,
     focus,
-    setFocus,
     blur,
-    setBlur,
     query,
-    setQuery
+    focusedOptionKey,
+    setSelected,
+    setFocus,
+    setBlur,
+    setQuery,
+    setFocusedOptionKey
   }
 }

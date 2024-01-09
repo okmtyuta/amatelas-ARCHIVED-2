@@ -10,7 +10,7 @@ type _RippleProps = {
   }
 } & DefaultSpanProps
 
-export const _Ripple = ({  radius, center, ...props }: _RippleProps) => {
+export const _Ripple = ({ radius, center, ...props }: _RippleProps) => {
   const _radius = radius ?? 50
   const _center = center ?? { x: 0, y: 0 }
   return (
