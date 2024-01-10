@@ -322,7 +322,7 @@ export const textfieldStyles = () => {
   const styles = [base, ...focusColorVariations(), ...errorColorVariations()]
   return styles
 }
-export const textfieldPrefixed = prefixed
+export const textfieldPrefixed = _prefixed
 export const textfieldClasses = {
   textfield,
   addon,

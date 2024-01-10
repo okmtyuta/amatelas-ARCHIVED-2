@@ -8,3 +8,5 @@ export { Chip } from './chip'
 export { Frame } from './frame'
 export { Heading } from './heading'
 export { Textfield, MaterialTextfield } from '../textfield'
+export { Paragraph } from './paragraph/paragraph'
+export {List, ListItem} from "../list"
