@@ -15,7 +15,7 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: {
-        server: resolve(__dirname, 'src/components/server'),
+        server: resolve(__dirname, 'src/components/server.ts'),
         reactive: resolve(__dirname, 'src/components/reactive')
       }
     },

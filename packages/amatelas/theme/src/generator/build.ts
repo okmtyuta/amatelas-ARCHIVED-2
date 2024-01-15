@@ -21,6 +21,7 @@ import { frameStyles } from './components/server/frame/frame.css'
 import { listItemStyles } from './components/server/list/list-item.css'
 import { listStyles } from './components/server/list/list.css'
 import { snackStyles } from './components/server/snack/snack.css'
+import { positionalStyles } from './components/positional/positional.css'
 
 // import { rippleStyles } from './effect/ripple/ripple.css'
 import { paragraphStyles } from './components/server/paragraph/paragraph.css'
@@ -65,9 +66,9 @@ const style = [
 
   ...selectStyles(),
 
-  ...paragraphStyles()
+  ...paragraphStyles(),
 
-  // ...rippleStyles()
+  ...positionalStyles()
 ]
   .join(' ')
   .replaceAll(/\s+/g, ' ')

@@ -1,5 +1,5 @@
 import '@okmtyuta/amatelas-theme/styles'
-import { Frame } from './components/server/frame'
+import { Frame } from './components/server'
 import { Heading } from './components/server'
 import { _Option } from './components/select/_prototype/_Option'
 import { _Select } from './components/select/_prototype/_Select'
@@ -11,11 +11,14 @@ import {
   _MaterialFormItemOutline,
   _MaterialFormItemPlaceholder
 } from './components/material-form/_MaterialFormItem'
+import { Positional } from './components/positional'
 
 function App() {
   return (
     <Frame className="frame">
       <Heading as="h1">Material From Item</Heading>
+
+      <Positional position='fixed'>aaaaaaaaa</Positional>
 
       <div style={{ display: 'flex' }}>
         <div>prefix</div>

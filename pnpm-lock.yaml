@@ -45,6 +45,21 @@ importers:
         specifier: ^5
         version: 5.3.2
 
+  packages/amatelas/cli:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.8
+        version: 20.10.8
+      tsx:
+        specifier: ^4.6.2
+        version: 4.6.2
+      typescript:
+        specifier: ^5.2.2
+        version: 5.3.2
+      vite:
+        specifier: ^5.0.8
+        version: 5.0.10(@types/node@20.10.8)
+
   packages/amatelas/react:
     dependencies:
       clsx:
@@ -1015,6 +1030,12 @@ packages:
 
   /@types/node@20.10.5:
     resolution: {integrity: sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
+  /@types/node@20.10.8:
+    resolution: {integrity: sha512-f8nQs3cLxbAFc00vEU59yf9UyGUftkPaLGfvbVOIDdx2i1b8epBqj2aNGyP19fiyXWvlmZ7qC1XLjAzw/OKIeA==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -3699,6 +3720,42 @@ packages:
         optional: true
     dependencies:
       '@types/node': 20.10.5
+      esbuild: 0.19.8
+      postcss: 8.4.32
+      rollup: 4.6.1
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /vite@5.0.10(@types/node@20.10.8):
+    resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 20.10.8
       esbuild: 0.19.8
       postcss: 8.4.32
       rollup: 4.6.1

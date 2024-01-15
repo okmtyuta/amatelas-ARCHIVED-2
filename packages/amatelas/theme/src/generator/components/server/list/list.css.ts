@@ -1,7 +1,7 @@
 import { prefixedBy } from '@src/helper'
 
 const _prefixed = prefixedBy('list')
-const list = _prefixed
+const list = _prefixed()
 
 const base = /* css */ `
 .${list} {

@@ -4,6 +4,10 @@ export { materialFormItemClasses } from './generator/components/material-form-it
 export { listItemClasses } from './generator/components/server/list/list-item.css'
 export { listClasses } from './generator/components/server/list/list.css'
 export {
+  positionalClasses,
+  type PositionalPosition
+} from './generator/components/positional/positional.css'
+export {
   textfieldPrefixed,
   textfieldClasses,
   getTextfieldVariant,
