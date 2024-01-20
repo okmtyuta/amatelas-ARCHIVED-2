@@ -1,6 +1,6 @@
 {
   "name": "@okmtyuta/amatelas-react",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "type": "module",
   "main": "./dist/server.js",
   "files": [
