@@ -1,6 +1,6 @@
 {
   "name": "@okmtyuta/amatelas-react",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "type": "module",
   "main": "./dist/server.js",
   "files": [
@@ -9,7 +9,7 @@
   "exports": {
     "./server": {
       "import": "./dist/server.js",
-      "types": "./dist/types/src/components/server/index.d.ts"
+      "types": "./dist/types/src/components/server.d.ts"
     },
     "./reactive": {
       "import": "./dist/reactive.js",
@@ -34,10 +34,10 @@
   "dependencies": {
     "clsx": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@okmtyuta/amatelas-theme": "workspace:^"
   },
   "devDependencies": {
-    "@okmtyuta/amatelas-theme": "workspace:^",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
