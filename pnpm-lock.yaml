@@ -62,6 +62,9 @@ importers:
 
   packages/amatelas/react:
     dependencies:
+      '@okmtyuta/amatelas-theme':
+        specifier: 0.0.10
+        version: link:../theme
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -72,9 +75,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@okmtyuta/amatelas-theme':
-        specifier: workspace:^
-        version: link:../theme
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.42
