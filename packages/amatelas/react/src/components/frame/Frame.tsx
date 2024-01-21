@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react'
 import { clsx } from 'clsx'
 import { FrameSizes } from '@okmtyuta/amatelas-theme/types'
-import { framePrefixed } from '@okmtyuta/amatelas-theme/prefixed'
+import { frameClasses } from '@okmtyuta/amatelas-theme'
 
 type DefaultDivProps = ComponentProps<'div'>
 type FrameProps = {
@@ -21,8 +21,8 @@ export const Frame = ({ size, ...props }: FrameProps) => {
     <div
       {...props}
       className={clsx(
-        framePrefixed(),
-        framePrefixed(getWidth(size)),
+        frameClasses.frame,
+        frameClasses.sizes[getWidth(size)],
         props.className
       )}
     >

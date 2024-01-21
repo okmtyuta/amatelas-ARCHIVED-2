@@ -1,0 +1,10 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { frameClasses } from '@okmtyuta/amatelas-theme'
+
+type Props = HTMLAttributes<'div'>
+---
+
+<div class:list={[frameClasses.frame, frameClasses.sizes.xl]}>
+  <slot />
+</div>

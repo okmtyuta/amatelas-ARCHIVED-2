@@ -7,8 +7,6 @@ export {
   outlinedMaterialChipPrefixed,
   filledMaterialChipPrefixed
 } from '../generator/components/server/chip/material/material-chip-prefixed'
-export { framePrefixed } from '../generator/components/server/frame/frame-prefixed'
-export { headingPrefixed } from '../generator/components/server/heading/heading-prefixed'
 export {
   standardMaterialButtonPrefixed,
   outlinedMaterialButtonPrefixed,
@@ -19,5 +17,4 @@ export {
   outlinedButtonPrefixed,
   filledButtonPrefixed
 } from '../generator/components/server/button/native/button-prefixed'
-export { paragraphPrefixed } from '../generator/components/server/paragraph/paragraph-prefixed'
 export { ripplePrefixed } from '../generator/effect/ripple/ripple-prefixed'

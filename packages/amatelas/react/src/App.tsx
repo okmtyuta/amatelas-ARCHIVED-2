@@ -16,7 +16,7 @@ import { Positional } from './components/positional'
 function App() {
   return (
     <Frame className="frame">
-      <Heading as="h1">Material From Item</Heading>
+      <Heading element="h1">Material From Item</Heading>
 
       <Positional position='fixed'>aaaaaaaaa</Positional>
 
@@ -40,16 +40,16 @@ function App() {
         <_MaterialFormItemOutline />
         <_MaterialFormItemInput />
       </_MaterialFormItem>
-      <Heading as="h1">Select</Heading>
+      <Heading element="h1">Select</Heading>
 
-      <Heading as="h2">Native</Heading>
+      <Heading element="h2">Native</Heading>
       <_Select as="select" placeholder="placeholder">
         <_Option _type="native">Option1</_Option>
         <_Option _type="native">Option2</_Option>
         <_Option _type="native">Option3</_Option>
       </_Select>
 
-      <Heading as="h2">Material</Heading>
+      <Heading element="h2">Material</Heading>
       <_Select as="div" material>
         <_Option _type="material">raise</_Option>
         <_Option _type="material">rise</_Option>

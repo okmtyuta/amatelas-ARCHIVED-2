@@ -1,30 +1,44 @@
-import { framePrefixed } from './frame-prefixed'
+import { prefixedBy } from '@src/helper'
+
+const _prefixed = prefixedBy('frame')
+
+const frame = _prefixed()
+const sizes = {
+  xl: _prefixed('xl'),
+  lg: _prefixed('lg'),
+  md: _prefixed('md'),
+  sm: _prefixed('sm'),
+  xs: _prefixed('xs')
+}
 
 const base = /* css */ `
-.${framePrefixed()} {
+.${frame} {
   margin: 0 auto;
   padding: 0 24px;
 }
 `
 const sizeVariations = () => {
-  const sizes = {
+  const _sizes = {
     xs: 860,
     sm: 860,
     md: 860,
     lg: 860,
     xl: 860
-  }
+  } as const
+  const _sizeKeys = ['xs', 'sm', 'md', 'lg', 'xl'] as const
   const _sizeVariations: string[] = []
 
-  for (const [size, width] of Object.entries(sizes)) {
+  for (const key of _sizeKeys) {
     _sizeVariations.push(/* css */ `
-    .${framePrefixed(size)} {
-      max-width: ${width}px;
-    }
+      .${sizes[key]} {
+        max-width: ${_sizes[key]}px;
+      }
     `)
   }
   return _sizeVariations
 }
+
+export const frameClasses = { frame, sizes }
 
 export const frameStyles = () => {
   const styles = [base, ...sizeVariations()]

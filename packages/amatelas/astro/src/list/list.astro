@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { listClasses } from '@okmtyuta/amatelas-theme'
+
+type DefaultListProps = HTMLAttributes<'ul'>
+type Props = DefaultListProps
+---
+
+<ul {...Astro.props} class={listClasses.list}>
+  <slot />
+</ul>

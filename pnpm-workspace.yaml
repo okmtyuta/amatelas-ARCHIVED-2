@@ -1,5 +1,6 @@
 packages:
   - 'packages/amatelas/*'
+  - 'packages/astro-dev'
   - 'packages/markdown/*'
   - "apps/*"
   - "storybook"

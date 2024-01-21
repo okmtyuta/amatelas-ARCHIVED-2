@@ -1,20 +1,27 @@
 import clsx from 'clsx'
 import { ComponentPropsWithoutRef, ElementType } from 'react'
 
-import { headingPrefixed } from '@okmtyuta/amatelas-theme/prefixed'
+import { headingClasses } from '@okmtyuta/amatelas-theme'
 
 type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export type HeadingProps<T extends ElementType> = {
-  as?: HeadingType
+  element?: HeadingType
 } & Omit<ComponentPropsWithoutRef<T>, 'tag'>
 
 export const Heading = <T extends ElementType = 'h1'>({
-  as,
+  element,
+  children,
   ...props
 }: HeadingProps<T>) => {
-  const _H = as ?? 'h1'
-  const prefixed = headingPrefixed
+  const Element = element ?? 'h1'
 
-  return <_H {...props} className={clsx(prefixed(), prefixed(_H))} />
+  return (
+    <Element
+      {...props}
+      className={clsx(headingClasses['heading'], headingClasses[Element])}
+    >
+      {children}
+    </Element>
+  )
 }

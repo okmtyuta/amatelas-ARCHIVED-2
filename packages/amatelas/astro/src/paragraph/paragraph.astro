@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { paragraphClasses } from '@okmtyuta/amatelas-theme'
+
+type DefaultParagraphProps = HTMLAttributes<'p'>
+type Props = DefaultParagraphProps
+---
+
+<p {...Astro.props} class={paragraphClasses.paragraph}>
+  <slot />
+</p>

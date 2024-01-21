@@ -1,0 +1,39 @@
+{
+  "name": "@okmtyuta/amatelas-astro",
+  "version": "0.0.14",
+  "type": "module",
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "astro-component"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "fmt": "prettier --write . --plugin=prettier-plugin-astro"
+  },
+  "devDependencies": {
+    "astro": "^4.2.1",
+    "prettier": "^3.2.4",
+    "prettier-plugin-astro": "^0.13.0",
+    "@okmtyuta/amatelas-theme": "workspace:^"
+  },
+  "peerDependencies": {
+    "astro": "^4.2.1",
+    "@okmtyuta/amatelas-theme": "^0.0.12"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "clsx": "^2.0.0",
+    "typescript": "^5.3.3",
+    "@okmtyuta/amatelas-theme": "^0.0.12"
+  },
+    "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { headingClasses } from '@okmtyuta/amatelas-theme'
+
+type Props = {
+  element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+} & HTMLAttributes<'h1'>
+
+const Element = Astro.props.element || "h1"
+---
+
+<Element class:list={[headingClasses.heading, headingClasses[Element]]}>
+  <slot />
+</Element>

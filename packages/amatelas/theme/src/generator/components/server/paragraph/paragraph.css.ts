@@ -1,16 +1,18 @@
-import { paragraphPrefixed } from './paragraph-prefixed'
+import { prefixedBy } from '@src/helper'
 
-const prefixed = paragraphPrefixed
+const _prefixed = prefixedBy('paragraph')
 
-const _paragraph = prefixed()
+const paragraph = _prefixed()
 
 const base = /* css */ `
-.${_paragraph} {
+.${paragraph} {
   line-height: 1.7;
   margin-top: 12px;
   margin-bottom: 12px;
 }
 `
+
+export const paragraphClasses = { paragraph }
 
 export const paragraphStyles = () => {
   const styles = [base]

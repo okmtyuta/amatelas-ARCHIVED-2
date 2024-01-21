@@ -11,9 +11,7 @@ const base = /* css */ `
 }
 `
 
-export const listClasses = {
-  list
-}
+export const listClasses = { list }
 
 export const listStyles = () => {
   const styles = [base]
