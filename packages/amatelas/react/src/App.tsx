@@ -11,14 +11,11 @@ import {
   _MaterialFormItemOutline,
   _MaterialFormItemPlaceholder
 } from './components/material-form/_MaterialFormItem'
-import { Positional } from './components/positional'
 
 function App() {
   return (
     <Frame className="frame">
       <Heading element="h1">Material From Item</Heading>
-
-      <Positional position='fixed'>aaaaaaaaa</Positional>
 
       <div style={{ display: 'flex' }}>
         <div>prefix</div>

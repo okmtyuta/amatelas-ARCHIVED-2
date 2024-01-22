@@ -1,10 +1,11 @@
-import { paragraphPrefixed } from '@okmtyuta/amatelas-theme/prefixed'
+import { paragraphClasses } from '@okmtyuta/amatelas-theme'
 import { ComponentProps } from 'react'
 
 type DefaultParagraphProps = ComponentProps<'p'>
 type ParagraphProps = DefaultParagraphProps
 
+const classes = paragraphClasses
+
 export const Paragraph = ({ ...props }: ParagraphProps) => {
-  const prefixed = paragraphPrefixed
-  return <p {...props} className={prefixed()}/>
+  return <p {...props} className={classes.paragraph} />
 }
