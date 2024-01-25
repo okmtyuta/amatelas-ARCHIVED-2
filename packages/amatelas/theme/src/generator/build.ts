@@ -31,6 +31,7 @@ import { textfieldStyles } from './components/server/textfield/textfield.css'
 import { materialFormItemStyles } from './components/material-form-item/material-form-item.css'
 import { selectStyles } from './components/select/_experimental/select.css'
 import { blogCardStyles } from './components/blog-card/blog-card.css'
+import { textareaStyles } from './components/server/textarea/textarea.css'
 
 const style = [
   resetStyle,
@@ -72,7 +73,9 @@ const style = [
 
   ...positionalStyles(),
 
-  ...blogCardStyles()
+  ...blogCardStyles(),
+
+  ...textareaStyles()
 ]
   .join(' ')
   .replaceAll(/\s+/g, ' ')

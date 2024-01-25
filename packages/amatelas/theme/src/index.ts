@@ -12,6 +12,14 @@ export {
   type PositionalPosition
 } from './generator/components/positional/positional.css'
 export {
+  textareaPrefixed,
+  textareaClasses,
+  getTextareaVariant,
+  getTextareaFocusColor,
+  getTextareaErrorColor,
+  type TextareaVariant
+} from './generator/components/server/textarea/textarea.css'
+export {
   textfieldPrefixed,
   textfieldClasses,
   getTextfieldVariant,
