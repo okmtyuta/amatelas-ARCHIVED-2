@@ -10,7 +10,7 @@ import {
 } from '@okmtyuta/amatelas-theme'
 import { Color } from '@okmtyuta/amatelas-theme/types'
 
-type DefaultInputProps = ComponentProps<'input'>
+type DefaultInputProps = ComponentProps<'textarea'>
 type _TextareaProps = {
   helper?: ReactNode
   validate?: boolean
@@ -76,7 +76,7 @@ export const _Textarea = ({
           </label>
 
           <textarea
-            // {...props}
+            {...props}
             className={clsx(classes.input)}
             placeholder=" "
           />

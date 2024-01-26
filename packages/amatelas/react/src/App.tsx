@@ -1,6 +1,6 @@
 import '@okmtyuta/amatelas-theme/styles'
 import './index.css'
-import { Frame } from './components/server'
+import { Frame, Textfield } from './components/server'
 import { Heading } from './components/server'
 import { _Textarea } from './components/textarea/_Textarea'
 
@@ -9,16 +9,15 @@ function App() {
     <>
       <Frame className="frame">
         <Heading element="h1">Material From Item</Heading>
-
-        <_Textarea variant="filled" placeholder="placeholder" />
-        <div style={{ height: '256px' }}>
-          <_Textarea material variant="filled" placeholder="placeholder" />
+        <Heading>Create Post</Heading>
+        <Textfield placeholder="タイトル" />
+        <div style={{ width: '100%', height: '256px' }}>
+          <_Textarea onChange={(e) => {
+            console.log(e.target.value)
+          }} variant='outlined' placeholder="本文" />
         </div>
-        <div style={{ height: '256px' }}>
-          <_Textarea material variant="outlined" placeholder="placeholder" />
-        </div>
-        <_Textarea material variant="outlined" placeholder="placeholder" />
-        <_Textarea material variant="standard" placeholder="placeholder" />
+        -------------
+        <Textfield placeholder="認証コード" type="password" />
       </Frame>
     </>
   )

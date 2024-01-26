@@ -1,3 +1,4 @@
+export { _Textarea } from './textarea/_Textarea'
 export { Accordion } from './accordion'
 export { Alert } from './alert'
 export { Avatar } from './avatar'
@@ -12,3 +13,4 @@ export { Textfield, MaterialTextfield } from './textfield'
 export { Paragraph } from './paragraph'
 export { Positional } from './positional'
 export { List, ListItem } from './list'
+

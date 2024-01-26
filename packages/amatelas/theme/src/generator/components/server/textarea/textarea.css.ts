@@ -47,7 +47,7 @@ const base = /* css */ `
   height: 100%;
 }
 .${textarea}:not(.${material}) .${inputArea} {
-  height: 100%;
+  height: calc(100% - 36px);
 }
 .${textarea}.${filled} .${inputArea} {
   background-color: ${fillBackgroundColor};
@@ -61,7 +61,9 @@ const base = /* css */ `
   display: none;
 }
 .${textarea}:not(.${material}) .${outsidePlaceholder} {
-  display: inline-block;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
   margin: 6px 0;
 }
 .${textarea}:not(.${material}) .${insidePlaceholder} {
@@ -126,9 +128,9 @@ const base = /* css */ `
   width: 100%;
 }
 .${textarea}:not(.${material}) .${input} {
-  height: 100%;
   padding: 0 10px;
   margin: 12px 0 ;
+  height: calc(100% - 12px - 12px);
 }
 .${textarea}.${material} .${input} {
   position: relative;
@@ -139,14 +141,14 @@ const base = /* css */ `
   margin-top: 12px;
   margin-bottom: 10px;
   padding: 0 10px;
-  height: calc(100% - 12px - 10px);
+  height: calc(100% - 12px - 10px - 24px);
 }
 .${textarea}.${material}:has(.${placeholder}).${filled} .${input},
 .${textarea}.${material}:has(.${placeholder}).${standard} .${input} {
   margin-top: 24px;
   margin-bottom: 10px;
   padding: 0 10px;
-  height: calc(100% - 24px - 10px);
+  height: calc(100% - 24px - 10px - 36px);
 }
 
 .${textarea} .${inputOutline} {

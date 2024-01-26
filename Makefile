@@ -10,3 +10,4 @@ publish-amatelas-theme:
 	cd packages/amatelas/theme; npm publish
 
 publish: publish-amatelas-react publish-amatelas-theme
+patch-publish: patch publish

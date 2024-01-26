@@ -1,6 +1,6 @@
 {
   "name": "@okmtyuta/amatelas-react",
-  "version": "0.0.14",
+  "version": "0.0.20",
   "type": "module",
   "main": "./dist/server.js",
   "files": [
@@ -22,12 +22,6 @@
     "test": "pnpm prebuild && pnpm vitest --watch=false",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
-  },
-  "peerDependencies": {
-    "@okmtyuta/amatelas-theme": "^0.0.13",
-    "clsx": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   },
   "dependencies": {
     "@okmtyuta/amatelas-theme": "^0.0.13",
