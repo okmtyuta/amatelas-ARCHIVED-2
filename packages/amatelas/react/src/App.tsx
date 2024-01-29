@@ -1,23 +1,21 @@
 import '@okmtyuta/amatelas-theme/styles'
 import './index.css'
-import { Frame, Textfield } from './components/server'
+import { Frame } from './components/server'
 import { Heading } from './components/server'
-import { _Textarea } from './components/textarea/_Textarea'
+import { _BlogTitle } from './components/blog/blog-title/_BlogTitle'
 
 function App() {
   return (
     <>
       <Frame className="frame">
         <Heading element="h1">Material From Item</Heading>
+
+        <_BlogTitle
+          title="品質の可視化への取り組み：バグ管理の事例紹介"
+          author="okmtyuta"
+          // posted={new Date()}
+        />
         <Heading>Create Post</Heading>
-        <Textfield placeholder="タイトル" />
-        <div style={{ width: '100%', height: '256px' }}>
-          <_Textarea onChange={(e) => {
-            console.log(e.target.value)
-          }} variant='outlined' placeholder="本文" />
-        </div>
-        -------------
-        <Textfield placeholder="認証コード" type="password" />
       </Frame>
     </>
   )

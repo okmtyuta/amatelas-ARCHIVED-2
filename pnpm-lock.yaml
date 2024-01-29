@@ -92,8 +92,8 @@ importers:
   packages/amatelas/react:
     dependencies:
       '@okmtyuta/amatelas-theme':
-        specifier: ^0.0.13
-        version: 0.0.13
+        specifier: workspace:^
+        version: link:../theme
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -1476,13 +1476,6 @@ packages:
 
   /@okmtyuta/amatelas-theme@0.0.12:
     resolution: {integrity: sha512-/mbdaU3tdz1v2rpG/J1diKrycHKjIjhs70bvztjZ1RVEvLYISFLZW8w8Uh3wgctAVqmIAexeSF+Ppg2lrD+4+w==}
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@okmtyuta/amatelas-theme@0.0.13:
-    resolution: {integrity: sha512-PyIfoJGli2xzBq1ReQ2NhAHZylvJc1CmCgMsnEvYQ9y6EU4g8cynUVALuIo+NqNLd+axJxYAbBtrRuwc3Nq+rA==}
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

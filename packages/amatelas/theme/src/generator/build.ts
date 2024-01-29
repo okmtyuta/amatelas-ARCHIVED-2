@@ -22,16 +22,14 @@ import { listItemStyles } from './components/server/list/list-item.css'
 import { listStyles } from './components/server/list/list.css'
 import { snackStyles } from './components/server/snack/snack.css'
 import { positionalStyles } from './components/positional/positional.css'
-export { blogCardStyles } from './components/blog-card/blog-card.css'
-
-// import { rippleStyles } from './effect/ripple/ripple.css'
 import { paragraphStyles } from './components/server/paragraph/paragraph.css'
 import { headingStyles } from './components/server/heading/heading.css'
 import { textfieldStyles } from './components/server/textfield/textfield.css'
 import { materialFormItemStyles } from './components/material-form-item/material-form-item.css'
 import { selectStyles } from './components/select/_experimental/select.css'
-import { blogCardStyles } from './components/blog-card/blog-card.css'
 import { textareaStyles } from './components/server/textarea/textarea.css'
+import { blogCardStyles } from './components/blog/blog-card/blog-card.css'
+import { blogTitleStyles } from './components/blog/blog-title/blog-title.css'
 
 const style = [
   resetStyle,
@@ -74,6 +72,7 @@ const style = [
   ...positionalStyles(),
 
   ...blogCardStyles(),
+  ...blogTitleStyles(),
 
   ...textareaStyles()
 ]

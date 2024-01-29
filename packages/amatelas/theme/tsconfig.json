@@ -26,7 +26,7 @@
     },
     "types": ["node"]
   },
-  "include": ["src"],
+  "include": ["src", "../react/src/test.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "ts-node": {
     "esm": true,

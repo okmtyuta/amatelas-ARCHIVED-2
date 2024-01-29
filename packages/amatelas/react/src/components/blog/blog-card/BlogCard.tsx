@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react'
-import './card.css'
 import { FormatListBulletedSVG } from '@src/svg/FormatListBulletedSVG'
 import { blogCardClasses } from '@okmtyuta/amatelas-theme'
 
