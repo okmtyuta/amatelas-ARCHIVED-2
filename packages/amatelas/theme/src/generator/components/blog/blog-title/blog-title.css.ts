@@ -10,6 +10,9 @@ const author = _prefixed('author')
 const gray = new Hex(color.neutral).getHexString()
 
 const base = /* css */ `
+.${blogTitle} {
+  padding: 24px 0 12px 0;
+}
 .${blogTitle} .${title} {
   padding-top: 6px;
   padding-bottom: 12px;

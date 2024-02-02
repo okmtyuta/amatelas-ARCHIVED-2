@@ -1,3 +1,12 @@
+export {
+  filledCircleButtonClasses,
+  filledCircleButtonColorClass
+} from './generator/components/button/circle/filled-button.css'
+export { modalClasses } from './generator/components/modal/modal.css'
+export {
+  alertColorClass,
+  alertClasses
+} from './generator/components/server/alert/alert.css'
 export { blogTitleClasses } from './generator/components/blog/blog-title/blog-title.css'
 export { blogCardClasses } from './generator/components/blog/blog-card/blog-card.css'
 export { sharedMaterialFormItemClasses } from './generator/components/material-form-item/material-form-item.css'
@@ -13,7 +22,6 @@ export {
   type PositionalPosition
 } from './generator/components/positional/positional.css'
 export {
-  textareaPrefixed,
   textareaClasses,
   getTextareaVariant,
   getTextareaFocusColor,
@@ -21,7 +29,6 @@ export {
   type TextareaVariant
 } from './generator/components/server/textarea/textarea.css'
 export {
-  textfieldPrefixed,
   textfieldClasses,
   getTextfieldVariant,
   getTextfieldFocusColor,

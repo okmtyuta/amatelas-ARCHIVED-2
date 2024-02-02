@@ -1,20 +1,16 @@
 import '@okmtyuta/amatelas-theme/styles'
 import './index.css'
-import { Frame } from './components/server'
+import { Alert, Frame } from './components/server'
 import { Heading } from './components/server'
-import { _BlogTitle } from './components/blog/blog-title/_BlogTitle'
+import { _AddActionButton } from './components/button/actions/add/_AddActionButton'
 
 function App() {
   return (
     <>
       <Frame className="frame">
-        <Heading element="h1">Material From Item</Heading>
+        <Alert>this is ae</Alert>
+        <_AddActionButton />
 
-        <_BlogTitle
-          title="品質の可視化への取り組み：バグ管理の事例紹介"
-          author="okmtyuta"
-          // posted={new Date()}
-        />
         <Heading>Create Post</Heading>
       </Frame>
     </>

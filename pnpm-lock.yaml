@@ -92,7 +92,7 @@ importers:
   packages/amatelas/react:
     dependencies:
       '@okmtyuta/amatelas-theme':
-        specifier: workspace:^
+        specifier: ^0.0.22
         version: link:../theme
       clsx:
         specifier: ^2.0.0
@@ -256,10 +256,10 @@ importers:
     dependencies:
       '@okmtyuta/amatelas-react':
         specifier: 0.0.20
-        version: link:../../amatelas/react
+        version: 0.0.20(@okmtyuta/amatelas-theme@0.0.20)(clsx@2.1.0)(react-dom@18.2.0)(react@18.2.0)
       '@okmtyuta/amatelas-theme':
         specifier: 0.0.20
-        version: link:../../amatelas/theme
+        version: 0.0.20
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1467,6 +1467,20 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
+  /@okmtyuta/amatelas-react@0.0.20(@okmtyuta/amatelas-theme@0.0.20)(clsx@2.1.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-X6AWpqGqDIL9L19ubi2X2BN5zWqUlfHcowXrQOL9xZZjh8g8Bvq4Cl7JM9ZNmH0ZoT6KoaNHaaqKr4SgQZNpcA==}
+    peerDependencies:
+      '@okmtyuta/amatelas-theme': ^0.0.13
+      clsx: ^2.0.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      '@okmtyuta/amatelas-theme': 0.0.20
+      clsx: 2.1.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@okmtyuta/amatelas-theme@0.0.11:
     resolution: {integrity: sha512-tY4+DG+wspBjgfCUvaXElOrPOdxyuiVT0yLzt/mG3sZ9hMU5ZFvGgC2vx4H0zI48YMw5B4RCVs6fY48RoVut7g==}
     dependencies:
@@ -1476,6 +1490,13 @@ packages:
 
   /@okmtyuta/amatelas-theme@0.0.12:
     resolution: {integrity: sha512-/mbdaU3tdz1v2rpG/J1diKrycHKjIjhs70bvztjZ1RVEvLYISFLZW8w8Uh3wgctAVqmIAexeSF+Ppg2lrD+4+w==}
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@okmtyuta/amatelas-theme@0.0.20:
+    resolution: {integrity: sha512-BsRQvJnvFO4HtsAxIRSQBO/YTFh+9kqtAPXedMYqVh2uVtIb8lBUsnC+525jjGX4tHJtpkkuG0IxDou2/h0LXQ==}
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)

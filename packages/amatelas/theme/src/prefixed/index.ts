@@ -1,4 +1,3 @@
-export { alertPrefixed } from '../generator/components/server/alert/alert-prefixed'
 export { accordionPrefixed } from '../generator/components/server/accordion/accordion-prefixed'
 export { avatarPrefixed } from '../generator/components/server/avatar/avatar-prefixed'
 export { blockquotePrefixed } from '../generator/components/server/blockquote/blockquote-prefixed'

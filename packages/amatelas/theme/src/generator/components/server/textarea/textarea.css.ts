@@ -322,7 +322,6 @@ export const textareaStyles = () => {
   const styles = [base, ...focusColorVariations(), ...errorColorVariations()]
   return styles
 }
-export const textareaPrefixed = _prefixed
 export const textareaClasses = {
   textarea,
   addon,

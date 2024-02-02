@@ -1,37 +1,51 @@
-import { alertPrefixed } from './alert-prefixed'
+import { prefixedBy } from '@src/helper'
+import { strictEntries } from '@src/lib/strict-entries'
 import { Hex } from '@src/theme/color/classes/Hex'
 import { color } from '@src/theme/color/color'
+import { Color } from '@src/types'
+
+const _prefixed = prefixedBy('AMUI-components_alert_')
+
+const alert = _prefixed()
+const input = _prefixed('input')
+const close = _prefixed('close')
+const closeSVG = _prefixed('close-svg')
+const labelSVG = _prefixed('label-svg')
+const summary = _prefixed('summary')
+const summaryText = _prefixed('summary-text')
+const closeLabel = _prefixed('close-label')
+const alertHead = _prefixed('alert-head')
 
 const base = /* css */ `
-.${alertPrefixed()} {
+.${alert} {
   padding: 16px;
   color: white;
   fill: white;
 }
-.${alertPrefixed()}:has(.${alertPrefixed('input')}:checked) {
+.${alert}:has(.${input}:checked) {
   display: none;
 }
-.${alertPrefixed()} .${alertPrefixed('close')} {
+.${alert} .${close} {
   flex-shrink: 0;
 }
-.${alertPrefixed()} .${alertPrefixed('close-svg')} {
+.${alert} .${closeSVG} {
   cursor: pointer;
   user-select: none;
 }
-.${alertPrefixed()} .${alertPrefixed('label-svg')} {
+.${alert} .${labelSVG} {
   flex-shrink: 0;
 }
-.${alertPrefixed()} .${alertPrefixed('summary')} {
+.${alert} .${summary} {
   display: flex;
   gap: 12px;
   margin-bottom: 8px;
 }
-.${alertPrefixed()} .${alertPrefixed('summary-text')} {
+.${alert} .${summaryText} {
   font-weight: bold;
   display: inline-flex;
   align-items: center;
 }
-.${alertPrefixed()} .${alertPrefixed('close-label')} {
+.${alert} .${closeLabel} {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,24 +53,28 @@ const base = /* css */ `
   transform: translate(4px, -4px);
   cursor: pointer;
 }
-.${alertPrefixed()} .${alertPrefixed('input')} {
+.${alert} .${input} {
   display: none;
 }
-.${alertPrefixed()} .${alertPrefixed('alert-head')} {
+.${alert} .${alertHead} {
   display: flex;
   justify-content: space-between;
 }
 `
 
+export const alertColorClass = (color: Color) => {
+  return _prefixed(`color-${color}`)
+}
+
 const colorVariations = () => {
   const _colorVariations: string[] = []
 
-  for (const [_color, _code] of Object.entries(color)) {
+  for (const [_color, _code] of strictEntries(color)) {
     const hex = new Hex(_code)
     _colorVariations.push(/* css */ `
-    .${alertPrefixed()}.${alertPrefixed(_color)} {
+    .${alert}.${alertColorClass(_color)} {
       background-color: ${hex.getHexString()};
-      .${alertPrefixed('close-label')}:hover {
+      .${closeLabel}:hover {
         border-radius: 50%;
         background-color: ${hex.getDarken(0.05).getHexString()};
       }
@@ -70,4 +88,16 @@ const colorVariations = () => {
 export const alertStyles = () => {
   const styles = [base, ...colorVariations()]
   return styles
+}
+
+export const alertClasses = {
+  alert,
+  input,
+  close,
+  closeSVG,
+  labelSVG,
+  summary,
+  summaryText,
+  closeLabel,
+  alertHead
 }
