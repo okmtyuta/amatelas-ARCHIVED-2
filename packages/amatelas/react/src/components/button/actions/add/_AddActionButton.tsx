@@ -7,8 +7,8 @@ import { Color } from '@okmtyuta/amatelas-theme/types'
 import { type ButtonVariant } from '@okmtyuta/amatelas-theme/types'
 
 import {
-  filledCircleButtonClasses,
-  filledCircleButtonColorClass
+  circleButtonClasses,
+  circleButtonColorClass
 } from '@okmtyuta/amatelas-theme'
 import { AddSVG } from '@src/svg/AddSVG'
 
@@ -22,11 +22,12 @@ export type CircleButtonProps<T extends ElementType> = {
   color?: AddActionButtonColor
 } & Omit<ComponentPropsWithoutRef<T>, 'tag'>
 
-const classes = filledCircleButtonClasses
+const classes = circleButtonClasses
 
 export const _AddActionButton = <T extends ElementType = 'button'>({
   element,
   color = 'info',
+  variant = 'standard',
   ...props
 }: CircleButtonProps<T>) => {
   const Element = element ?? 'button'
@@ -35,11 +36,12 @@ export const _AddActionButton = <T extends ElementType = 'button'>({
     <Element
       {...props}
       className={clsx(
-        classes.filledCircleButton,
-        filledCircleButtonColorClass(color)
+        classes.circleButton,
+        classes[variant],
+        circleButtonColorClass(color)
       )}
     >
-      <AddSVG />
+      <AddSVG className={classes.actionSVG} />
     </Element>
   )
 }

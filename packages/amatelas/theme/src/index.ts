@@ -1,7 +1,7 @@
 export {
-  filledCircleButtonClasses,
-  filledCircleButtonColorClass
-} from './generator/components/button/circle/filled-button.css'
+  circleButtonClasses,
+  circleButtonColorClass
+} from './generator/components/button/circle/circle-button.css'
 export { modalClasses } from './generator/components/modal/modal.css'
 export {
   alertColorClass,

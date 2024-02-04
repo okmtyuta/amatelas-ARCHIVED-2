@@ -31,7 +31,7 @@ import { textareaStyles } from './components/server/textarea/textarea.css'
 import { blogCardStyles } from './components/blog/blog-card/blog-card.css'
 import { blogTitleStyles } from './components/blog/blog-title/blog-title.css'
 import { modalStyles } from './components/modal/modal.css'
-import { filledCircleButtonStyles } from './components/button/circle/filled-button.css'
+import { circleButtonStyles } from './components/button/circle/circle-button.css'
 
 const style = [
   resetStyle,
@@ -82,7 +82,7 @@ const style = [
 
   ...filledMaterialChipStyles(),
 
-  ...filledCircleButtonStyles()
+  ...circleButtonStyles()
 ]
   .join(' ')
   .replaceAll(/\s+/g, ' ')

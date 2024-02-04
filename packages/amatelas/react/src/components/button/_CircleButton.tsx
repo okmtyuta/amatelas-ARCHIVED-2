@@ -7,8 +7,8 @@ import { Color } from '@okmtyuta/amatelas-theme/types'
 import { type ButtonVariant } from '@okmtyuta/amatelas-theme/types'
 
 import {
-  filledCircleButtonClasses,
-  filledCircleButtonColorClass
+  circleButtonClasses,
+  circleButtonColorClass
 } from '@okmtyuta/amatelas-theme'
 
 type CircleButtonColor = Color
@@ -20,14 +20,15 @@ export type CircleButtonProps<T extends ElementType> = {
   variant?: ButtonVariant
   color?: CircleButtonColor
   loading?: boolean
+  extensive?: boolean
 } & Omit<ComponentPropsWithoutRef<T>, 'tag'>
 
-const classes = filledCircleButtonClasses
+const classes = circleButtonClasses
 
 export const _CircleButton = <T extends ElementType = 'button'>({
   element,
   // width = "auto",
-  // variant,
+  variant = 'standard',
   color = 'info',
   ...props
 }: CircleButtonProps<T>) => {
@@ -37,8 +38,9 @@ export const _CircleButton = <T extends ElementType = 'button'>({
     <Element
       {...props}
       className={clsx(
-        classes.filledCircleButton,
-        filledCircleButtonColorClass(color)
+        classes.circleButton,
+        classes[variant],
+        circleButtonColorClass(color)
       )}
     >
       {props.children}

@@ -24,14 +24,12 @@
     "@okmtyuta/amatelas-theme": "workspace:^"
   },
   "peerDependencies": {
-    "astro": "^4.2.1",
-    "@okmtyuta/amatelas-theme": "^0.0.12"
+    "astro": "^4.2.1"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "clsx": "^2.0.0",
-    "typescript": "^5.3.3",
-    "@okmtyuta/amatelas-theme": "^0.0.12"
+    "typescript": "^5.3.3"
   },
     "publishConfig": {
     "access": "public"

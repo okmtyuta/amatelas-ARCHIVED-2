@@ -22,8 +22,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@okmtyuta/amatelas-react": "0.0.20",
-    "@okmtyuta/amatelas-theme": "0.0.20",
+    "@okmtyuta/amatelas-react": "latest",
     "clsx": "^2.1.0",
     "katex": "^0.16.9",
     "react": "^18.2.0",
