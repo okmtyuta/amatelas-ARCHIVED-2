@@ -2,59 +2,48 @@ import { prefixedBy } from '@src/helper'
 
 const _prefixed = prefixedBy('skeleton')
 const skeleton = _prefixed()
-const inline = _prefixed('inline')
-const content = _prefixed('content')
-const hidden = _prefixed('hidden')
-const animation = _prefixed('animation')
+const skeletonAnimation = _prefixed('skeleton-animation')
+const text = _prefixed('text')
+const circle = _prefixed('circle')
+const rectangle = _prefixed('rectangle')
+const rounded = _prefixed('rounded')
 
 const base = /* css */ `
-.${skeleton}.${hidden} .${content} {
-  opacity: 0;
-}
-
-.${skeleton}.${inline} {
-  display: inline-flex;
-}
-
-@keyframes ${animation} {
+@keyframes ${skeletonAnimation} {
   0% {
-    transform: translateX(-100%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
   }
   100% {
-    transform: translateX(100%);
+    opacity: 1;
   }
 }
 
-.${skeleton}.${hidden} {
-  position: relative;
-  background-color: #eee;
+.${skeleton} {
+  background-color: rgba(0, 0, 0, 0.11);
+  animation: ${skeletonAnimation} 2s ease-in-out 0.5s infinite;
 }
-.${skeleton}.${hidden}::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  content: '';
-  display: block;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0)
-  );
-  animation: ${animation} 1.2s linear infinite;
+.${skeleton}.${text} {
+  height: 14px;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+.${skeleton}.${circle} {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+.${skeleton}.${rounded} {
+  border-radius: 4px;
+}
+.${skeleton}.${rectangle} {
+  border-radius: 0;
 }
 `
 
-export const skeletonClasses = {
-  skeleton,
-  inline,
-  content,
-  hidden,
-  animation
-}
+export const skeletonClasses = { skeleton, text, circle, rectangle, rounded }
 
 export const skeletonStyles = () => {
   const styles = [base]

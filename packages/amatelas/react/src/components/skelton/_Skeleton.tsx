@@ -4,27 +4,14 @@ import { skeletonClasses } from '@okmtyuta/amatelas-theme'
 
 type DefaultSpanProps = ComponentProps<'div'>
 type _SkeltonProps = {
-  inline?: boolean
-  hidden?: boolean
+  variant?: 'circle' | 'text' | 'rectangle' | 'rounded'
 } & DefaultSpanProps
 
 const classes = skeletonClasses
 
 export const _Skeleton = ({
-  children,
-  hidden = false,
-  inline = false,
+  variant = 'rectangle',
   ...props
 }: _SkeltonProps) => {
-  return (
-    <div
-      {...props}
-      className={clsx(classes.skeleton, {
-        [classes.hidden]: hidden,
-        [classes.inline]: inline
-      })}
-    >
-      <div className={classes.content}>{children}</div>
-    </div>
-  )
+  return <div {...props} className={clsx(classes.skeleton, classes[variant])} />
 }
