@@ -76,7 +76,7 @@ export const _Textarea = ({
           </label>
 
           <textarea
-            // {...props}
+            {...props}
             className={clsx(classes.input)}
             placeholder=" "
           />

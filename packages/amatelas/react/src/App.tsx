@@ -1,20 +1,35 @@
 import '@okmtyuta/amatelas-theme/styles'
-import { Alert, Chip, Frame } from './components/server'
+import { Frame } from './components/server'
 import { Heading } from './components/server'
-import { _AddActionButton } from './components/button/actions/add/_AddActionButton'
+
+import { _Skeleton } from './components/skelton/_Skeleton'
+import { useEffect, useState } from 'react'
+
+const _sleep = (msec: number) =>
+  new Promise((resolve) => setTimeout(resolve, msec))
 
 function App() {
+  const [loading, setLoading] = useState(false)
+  const [heading, setHeading] = useState('dummy')
+
+  useEffect(() => {
+    const sleep = async () => {
+      setLoading(true)
+      await _sleep(3000)
+      setHeading('THIS IS A HEADING')
+      setLoading(false)
+    }
+
+    sleep()
+  }, [])
   return (
     <>
       <Frame className="frame">
-        <Alert>this is ae</Alert>
-        <_AddActionButton />
-        <_AddActionButton variant="filled" />
-        <_AddActionButton variant="outlined" />
-
-        <Chip>Chip</Chip>
-
         <Heading>Create Post</Heading>
+
+        <_Skeleton hidden={loading}>
+          <Heading>{heading}</Heading>
+        </_Skeleton>
       </Frame>
     </>
   )

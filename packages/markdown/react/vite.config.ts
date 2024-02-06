@@ -20,11 +20,11 @@ export default defineConfig({
       external: [
         'react',
         'react-dom',
-        // 'katex',
-        // 'react-markdown',
-        // 'rehype-katex',
-        // 'remark-gfm',
-        // 'unist-util-visit'
+        'katex',
+        'react-markdown',
+        'rehype-katex',
+        'remark-gfm',
+        'unist-util-visit'
       ],
       output: {
         globals: {}

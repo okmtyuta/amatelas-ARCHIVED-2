@@ -21,6 +21,7 @@ export type _OptionProps = _OptionOptionProps | _DivOptionProps
 type _CommonSelectProps = {
   as?: 'select' | 'div' | 'input'
   material?: boolean
+  placeholder?: string
 }
 interface _SelectSelectProps extends _CommonSelectProps, DefaultSelectProps {
   as: 'select'
