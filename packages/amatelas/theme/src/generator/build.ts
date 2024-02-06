@@ -33,6 +33,7 @@ import { blogTitleStyles } from './components/blog/blog-title/blog-title.css'
 import { modalStyles } from './components/modal/modal.css'
 import { circleButtonStyles } from './components/button/circle/circle-button.css'
 import { skeletonStyles } from './components/skeleton/skeleton.css'
+import { flexStyles } from './components/flex/flex.css'
 
 const style = [
   resetStyle,
@@ -85,7 +86,9 @@ const style = [
 
   ...circleButtonStyles(),
 
-  ...skeletonStyles()
+  ...skeletonStyles(),
+
+  ...flexStyles()
 ]
   .join(' ')
   .replaceAll(/\s+/g, ' ')

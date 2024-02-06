@@ -1,3 +1,4 @@
+export { flexClasses } from './generator/components/flex/flex.css'
 export { skeletonClasses } from './generator/components/skeleton/skeleton.css'
 export {
   circleButtonClasses,

@@ -12,7 +12,7 @@ export default defineConfig({
     lib: {
       entry: {
         server: resolve(__dirname, 'src/components/server.ts'),
-        reactive: resolve(__dirname, 'src/components/reactive')
+        svg: resolve(__dirname, 'src/svg/index.ts')
       }
     },
     rollupOptions: {

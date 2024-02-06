@@ -11,9 +11,9 @@
       "import": "./dist/server.js",
       "types": "./dist/types/src/components/server.d.ts"
     },
-    "./reactive": {
-      "import": "./dist/reactive.js",
-      "types": "./dist/types/src/components/reactive/index.d.ts"
+    "./svg": {
+      "import": "./dist/svg.js",
+      "types": "./dist/types/src/svg/index.d.ts"
     }
   },
   "scripts": {
