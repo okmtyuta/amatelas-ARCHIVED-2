@@ -1,7 +1,7 @@
 import { Frame } from '@okmtyuta/amatelas-react/server'
 
 import '@okmtyuta/amatelas-theme/styles'
-import './reset.css'
+import 'katex/dist/katex.min.css'
 import { Markdown } from '.'
 
 export const App = () => {
@@ -9,10 +9,13 @@ export const App = () => {
     <Frame>
       <Markdown>
         {String.raw`
-# HELLO
-
-- 1
-- 2`}
+方程式\\\[x^2 - 2x - 1 = 0\\\]を解くことを考える。が実数であることに注意すれば...方程式\\\[x^2 - 2x - 1 = 0\\\]を解くことを考える。が実数であることに注意すれば...
+\\\[
+\begin{align}
+  x^2 - 2x - 1 = 0
+\end{align}
+\\\]
+`}
       </Markdown>
     </Frame>
   )

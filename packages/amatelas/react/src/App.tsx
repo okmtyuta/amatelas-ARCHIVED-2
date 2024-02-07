@@ -1,30 +1,22 @@
 import '@okmtyuta/amatelas-theme/styles'
-import { Button, Frame, Paragraph, _BlogTitle } from './components/server'
+import { Button, Frame, _Textarea } from './components/server'
 import { Heading } from './components/server'
 
-import { _Skeleton } from './components/skelton/_Skeleton'
-import { useState, useEffect } from 'react'
 import { _Flex } from './components/flex/Flex'
-const _sleep = (msec: number) =>
-  new Promise((resolve) => setTimeout(resolve, msec))
+import { _Textfield } from './components/textfield/_Textfield'
 
 function App() {
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    const sleep = async () => {
-      setLoading(true)
-      await _sleep(3000)
-      setLoading(false)
-    }
-
-    sleep()
-  }, [])
-
   return (
     <>
       <Frame className="frame">
         <Heading>Create Post</Heading>
+
+        <_Textfield variant="embedded" defaultValue="INPUT YOUR TITLE..." />
+        <_Textarea
+          style={{ height: '240px' }}
+          variant="embedded"
+          defaultValue="INPUT YOUR BODY..."
+        />
 
         <_Flex alignItems="center" style={{ gap: '12px' }} direction="column">
           <Button variant="filled" color="alert">

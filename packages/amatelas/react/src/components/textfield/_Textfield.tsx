@@ -3,9 +3,6 @@ import { clsx } from 'clsx'
 
 import {
   TextfieldVariant,
-  getTextfieldErrorColor,
-  getTextfieldFocusColor,
-  getTextfieldVariant,
   textfieldClasses
 } from '@okmtyuta/amatelas-theme'
 import { Color } from '@okmtyuta/amatelas-theme/types'
@@ -32,38 +29,30 @@ type _TextFiledProps = {
 const classes = textfieldClasses
 
 export const _Textfield = ({
-  validate,
+  validate = false,
   helper,
   prefix,
   suffix,
-  variant,
-  material,
-  focusColor,
-  errorColor,
+  variant = 'standard',
+  material = false,
+  focusColor = 'info',
+  errorColor = 'alert',
   _hideable,
   ...props
 }: _TextFiledProps) => {
   const hasPlaceholder = !!props.placeholder && props.placeholder !== ''
-  const _variant = getTextfieldVariant(variant)
-  const _focusColor = getTextfieldFocusColor(focusColor)
-  const _errorColor = getTextfieldErrorColor(errorColor)
-  const variantClasses = {
-    [classes.outlined]: _variant === 'outlined',
-    [classes.standard]: _variant === 'standard',
-    [classes.filled]: _variant === 'filled'
-  }
 
   return (
     <>
       <div
         className={clsx(
           classes.textfield,
-          classes.focusColor(_focusColor),
-          classes.errorColor(_errorColor),
+          classes.focusColor(focusColor),
+          classes.errorColor(errorColor),
+          classes[variant],
           {
             [classes.validate]: validate,
-            [classes.material]: material,
-            ...variantClasses
+            [classes.material]: material
           }
         )}
       >

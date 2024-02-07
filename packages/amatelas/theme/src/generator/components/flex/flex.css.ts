@@ -77,7 +77,7 @@ const base = /* css */ `
 .${flex}.${alignContent['space-between']} {
   align-content: space-between;
 }
-.${flex}.{.${alignContent['stretch']}} {
+.${flex}.${alignContent['stretch']} {
   align-content: stretch;
 }
 
@@ -113,7 +113,7 @@ const base = /* css */ `
   align-items: flex-end;
 }
 .${flex}.${alignItems['stretch']} {
-  align-items: space-stretch;
+  align-items: stretch;
 }
 .${flex}.${alignItems['baseline']} {
   align-items: baseline;

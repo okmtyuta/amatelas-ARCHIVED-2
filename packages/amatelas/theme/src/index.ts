@@ -25,15 +25,9 @@ export {
 } from './generator/components/positional/positional.css'
 export {
   textareaClasses,
-  getTextareaVariant,
-  getTextareaFocusColor,
-  getTextareaErrorColor,
   type TextareaVariant
 } from './generator/components/server/textarea/textarea.css'
 export {
   textfieldClasses,
-  getTextfieldVariant,
-  getTextfieldFocusColor,
-  getTextfieldErrorColor,
   type TextfieldVariant
 } from './generator/components/server/textfield/textfield.css'

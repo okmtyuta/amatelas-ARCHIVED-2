@@ -3,9 +3,6 @@ import { clsx } from 'clsx'
 
 import {
   TextareaVariant,
-  getTextareaErrorColor,
-  getTextareaFocusColor,
-  getTextareaVariant,
   textareaClasses
 } from '@okmtyuta/amatelas-theme'
 import { Color } from '@okmtyuta/amatelas-theme/types'
@@ -23,35 +20,27 @@ type _TextareaProps = {
 const classes = textareaClasses
 
 export const _Textarea = ({
-  validate,
+  validate = false,
   helper,
-  variant,
-  material,
-  focusColor,
-  errorColor,
+  variant = "standard",
+  material = false,
+  focusColor = "info",
+  errorColor = "alert",
   ...props
 }: _TextareaProps) => {
   const hasPlaceholder = !!props.placeholder && props.placeholder !== ''
-  const _variant = getTextareaVariant(variant)
-  const _focusColor = getTextareaFocusColor(focusColor)
-  const _errorColor = getTextareaErrorColor(errorColor)
-  const variantClasses = {
-    [classes.outlined]: _variant === 'outlined',
-    [classes.standard]: _variant === 'standard',
-    [classes.filled]: _variant === 'filled'
-  }
 
   return (
     <>
       <div
         className={clsx(
           classes.textarea,
-          classes.focusColor(_focusColor),
-          classes.errorColor(_errorColor),
+          classes.focusColor(focusColor),
+          classes.errorColor(errorColor),
+          classes[variant],
           {
             [classes.validate]: validate,
-            [classes.material]: material,
-            ...variantClasses
+            [classes.material]: material
           }
         )}
       >

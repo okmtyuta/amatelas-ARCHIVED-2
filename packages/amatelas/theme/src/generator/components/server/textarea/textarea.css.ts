@@ -27,6 +27,7 @@ const visibility = _prefixed('visibility')
 const filled = _prefixed('filled')
 const outlined = _prefixed('outlined')
 const standard = _prefixed('standard')
+const embedded = _prefixed('embedded')
 
 const fillBackgroundColor = new Hex(color.neutral)
   .getLighten(0.84)
@@ -128,9 +129,14 @@ const base = /* css */ `
   width: 100%;
 }
 .${textarea}:not(.${material}) .${input} {
+  height: calc(100% - 12px - 12px);
+}
+.${textarea}:not(.${material}).${embedded} .${input} {
+  margin: 0 ;
+}
+.${textarea}:not(.${material}):not(.${embedded}) .${input} {
   padding: 0 10px;
   margin: 12px 0 ;
-  height: calc(100% - 12px - 12px);
 }
 .${textarea}.${material} .${input} {
   position: relative;
@@ -168,73 +174,6 @@ const base = /* css */ `
 .${textarea}.${standard} .${inputOutline} {
   border-bottom: solid ${blurColor} 1px;
   transition: all 0.3s;
-}
-
-
-.${textarea} .${prefix},
-.${textarea} .${suffix} {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.${textarea} .${prefix} {
-  padding: 0 8px;
-}
-.${textarea} .${suffix} {
-  padding: 0 8px;
-}
-.${textarea}.${outlined} .${prefix} {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.${textarea}.${outlined} .${suffix} {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-.${textarea}.${outlined} .${prefix},
-.${textarea}.${outlined} .${suffix} {
-  background-color: ${fillBackgroundColor};
-}
-.${textarea}.${standard} .${prefix},
-.${textarea}.${standard} .${suffix} {
-  border-bottom: solid ${blurColor} 1px;
-  transition: all 0.3s;
-}
-
-.${textarea}.${standard} .${prefixText},
-.${textarea}.${standard} .${suffixText},
-.${textarea}.${filled} .${prefixText},
-.${textarea}.${filled} .${suffixText} {
-  color: ${blurColor};
-  transition: all 0.3s;
-}
-.${textarea}.${outlined} .${prefixText},
-.${textarea}.${outlined} .${suffixText} {
-  color: black;
-  transition: all 0.3s;
-}
-
-
-.${textarea}.${outlined}:not(:has(.${input}.${prefixed})) .${inputOutline} {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.${textarea}.${outlined}:not(:has(.${input}.${suffixed})) .${inputOutline} {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.${visibility} {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  z-index: 500;
-  width: 36px;
-  height: 100%;
-  cursor: pointer;
 }
 `
 
@@ -344,28 +283,9 @@ export const textareaClasses = {
   filled,
   outlined,
   standard,
+  embedded,
   focusColor: focusColorClass,
   errorColor: errorColorClass
 }
 
-export type TextareaVariant = 'filled' | 'outlined' | 'standard'
-export const getTextareaVariant = (
-  variant?: TextareaVariant
-): TextareaVariant => {
-  if (variant) {
-    return variant
-  }
-  return 'standard'
-}
-export const getTextareaFocusColor = (color?: Color): Color => {
-  if (color) {
-    return color
-  }
-  return 'info'
-}
-export const getTextareaErrorColor = (color?: Color): Color => {
-  if (color) {
-    return color
-  }
-  return 'alert'
-}
+export type TextareaVariant = 'filled' | 'outlined' | 'standard' | 'embedded'

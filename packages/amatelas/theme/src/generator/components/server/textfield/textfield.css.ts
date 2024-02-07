@@ -27,6 +27,7 @@ const visibility = _prefixed('visibility')
 const filled = _prefixed('filled')
 const outlined = _prefixed('outlined')
 const standard = _prefixed('standard')
+const embedded = _prefixed('embedded')
 
 const fillBackgroundColor = new Hex(color.neutral)
   .getLighten(0.84)
@@ -134,9 +135,11 @@ const base = /* css */ `
 .${textfield} .${input} {
   height: 100%;
   width: 100%;
+}
+.${textfield}:not(.${embedded}) .${input} {
   padding-left: 10px;
 }
-.${textfield}:not(:has(.${visibility})) .${input} {
+.${textfield}:not(.${embedded}):not(:has(.${visibility})) .${input} {
   padding-right: 10px;
 }
 .${textfield}:has(.${visibility}) .${input} {
@@ -344,28 +347,9 @@ export const textfieldClasses = {
   filled,
   outlined,
   standard,
+  embedded,
   focusColor: focusColorClass,
   errorColor: errorColorClass
 }
 
-export type TextfieldVariant = 'filled' | 'outlined' | 'standard'
-export const getTextfieldVariant = (
-  variant?: TextfieldVariant
-): TextfieldVariant => {
-  if (variant) {
-    return variant
-  }
-  return 'standard'
-}
-export const getTextfieldFocusColor = (color?: Color): Color => {
-  if (color) {
-    return color
-  }
-  return 'info'
-}
-export const getTextfieldErrorColor = (color?: Color): Color => {
-  if (color) {
-    return color
-  }
-  return 'alert'
-}
+export type TextfieldVariant = 'filled' | 'outlined' | 'standard' | 'embedded'

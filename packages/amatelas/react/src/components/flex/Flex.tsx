@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { ComponentPropsWithoutRef, ElementType } from 'react'
 
-import './flex.css'
 import { flexClasses } from '@okmtyuta/amatelas-theme'
 
 export type FlexProps<T extends ElementType> = {
