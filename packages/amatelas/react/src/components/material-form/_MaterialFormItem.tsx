@@ -39,8 +39,8 @@ export const _MaterialFormItem = <Element extends ElementType = 'div'>({
     variant === 'outlined'
       ? classes.variant.outlined
       : variant === 'filled'
-      ? classes.variant.filled
-      : classes.variant.standard
+        ? classes.variant.filled
+        : classes.variant.standard
 
   return (
     <_Element

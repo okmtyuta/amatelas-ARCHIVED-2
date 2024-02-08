@@ -3,6 +3,7 @@ import { clsx } from 'clsx'
 
 import {
   TextfieldVariant,
+  TextfieldSystem,
   textfieldClasses
 } from '@okmtyuta/amatelas-theme'
 import { Color } from '@okmtyuta/amatelas-theme/types'
@@ -10,12 +11,14 @@ import { VisibilityOffSVG, VisibilitySVG } from '@src/svg'
 
 type DefaultInputProps = ComponentProps<'input'>
 type _TextFiledProps = {
+  variant?: TextfieldVariant
+  system?: TextfieldSystem
+
   helper?: ReactNode
   validate?: boolean
   prefix?: string
   suffix?: string
   material?: boolean
-  variant?: TextfieldVariant
   focusColor?: Color
   errorColor?: Color
 
@@ -29,12 +32,12 @@ type _TextFiledProps = {
 const classes = textfieldClasses
 
 export const _Textfield = ({
+  system = 'native',
+  variant = 'standard',
   validate = false,
   helper,
   prefix,
   suffix,
-  variant = 'standard',
-  material = false,
   focusColor = 'info',
   errorColor = 'alert',
   _hideable,
@@ -50,9 +53,9 @@ export const _Textfield = ({
           classes.focusColor(focusColor),
           classes.errorColor(errorColor),
           classes[variant],
+          classes[system],
           {
-            [classes.validate]: validate,
-            [classes.material]: material
+            [classes.validate]: validate
           }
         )}
       >

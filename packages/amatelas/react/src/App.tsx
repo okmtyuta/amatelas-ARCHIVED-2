@@ -1,46 +1,43 @@
 import '@okmtyuta/amatelas-theme/styles'
-import { Button, Frame, _Textarea } from './components/server'
+import { Frame } from './components/server'
 import { Heading } from './components/server'
 
-import { _Flex } from './components/flex/Flex'
-import { _Textfield } from './components/textfield/_Textfield'
+import './index.css'
+import {
+  _MaterialFormItem,
+  _MaterialFormItemInput,
+  _MaterialFormItemPlaceholder,
+  _MaterialFormItemOutline
+} from './components/material-form/_MaterialFormItem'
 
 function App() {
   return (
     <>
       <Frame className="frame">
         <Heading>Create Post</Heading>
+        <_MaterialFormItem variant="standard">
+          <_MaterialFormItemOutline />
+          <_MaterialFormItemPlaceholder>
+            placeholder
+          </_MaterialFormItemPlaceholder>
+          <_MaterialFormItemInput as="input" />
+        </_MaterialFormItem>
 
-        <_Textfield variant="embedded" defaultValue="INPUT YOUR TITLE..." />
-        <_Textarea
-          style={{ height: '240px' }}
-          variant="embedded"
-          defaultValue="INPUT YOUR BODY..."
-        />
+        <_MaterialFormItem variant="filled">
+          <_MaterialFormItemOutline />
+          <_MaterialFormItemPlaceholder>
+            placeholder
+          </_MaterialFormItemPlaceholder>
+          <_MaterialFormItemInput as="input" />
+        </_MaterialFormItem>
 
-        <_Flex alignItems="center" style={{ gap: '12px' }} direction="column">
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-        </_Flex>
-        <Heading element="h6">--</Heading>
-        <_Flex direction="row">
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-          <Button variant="filled" color="alert">
-            BUTTON
-          </Button>
-        </_Flex>
+        <_MaterialFormItem variant="outlined">
+          <_MaterialFormItemOutline />
+          <_MaterialFormItemPlaceholder>
+            placeholder
+          </_MaterialFormItemPlaceholder>
+          <_MaterialFormItemInput as="input" />
+        </_MaterialFormItem>
       </Frame>
     </>
   )

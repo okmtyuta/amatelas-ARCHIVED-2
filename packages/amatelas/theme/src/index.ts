@@ -29,5 +29,6 @@ export {
 } from './generator/components/server/textarea/textarea.css'
 export {
   textfieldClasses,
-  type TextfieldVariant
-} from './generator/components/server/textfield/textfield.css'
+  type TextfieldVariant,
+  type TextfieldSystem
+} from './generator/components/textfield/textfield.css'

@@ -40,6 +40,27 @@ const TextfieldPage = () => {
       </div>
 
       <div className="stack">
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="standard"
+        />
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="filled"
+        />
+        <MaterialTextfield
+          prefix="prefix"
+          suffix="suffix"
+          placeholder="placeholder"
+          variant="outlined"
+        />
+      </div>
+
+      <div className="stack">
         <PasswordTextfield
           prefix="prefix"
           suffix="suffix"

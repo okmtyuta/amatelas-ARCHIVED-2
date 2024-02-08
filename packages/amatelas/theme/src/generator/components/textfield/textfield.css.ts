@@ -6,8 +6,12 @@ import { Color } from '@src/types'
 const _prefixed = prefixedBy('basic_textfield')
 
 const textfield = _prefixed()
-const addon = _prefixed('addon')
+
+const native = _prefixed('native')
 const material = _prefixed('material')
+const hold = _prefixed('hold')
+
+const addon = _prefixed('addon')
 const input = _prefixed('input')
 const inputArea = _prefixed('input-area')
 const placeholder = _prefixed('placeholder')
@@ -42,17 +46,20 @@ const base = /* css */ `
 .${textfield}.${material} .${addon} {
   height: 58px;
 }
-.${textfield}:not(.${material}) .${addon} {
+.${textfield}:is(
+  .${native},
+  .${hold}
+) .${addon} {
   height: 48px;
 }
-
-
 .${textfield} .${inputArea} {
   width: 100%;
   position: relative;
   background-color: white;
 }
-.${textfield}:not(.${material}) .${inputArea} {
+.${textfield}:is(
+  .${native}, .${hold}
+) .${inputArea} {
   height: 100%;
 }
 .${textfield}.${material} .${inputArea} {
@@ -66,18 +73,23 @@ const base = /* css */ `
   transition: all 0.3s;
 }
 
-.${textfield}.${material} .${outsidePlaceholder} {
+.${textfield}:is(
+  .${material}, .${hold}
+) .${outsidePlaceholder} {
   display: none;
 }
-.${textfield}:not(.${material}) .${outsidePlaceholder} {
+.${textfield}.${native} .${outsidePlaceholder} {
   display: inline-block;
   margin: 6px 0;
 }
-.${textfield}:not(.${material}) .${insidePlaceholder} {
+.${textfield}.${native} .${insidePlaceholder} {
   display: none;
 }
-.${textfield}:not(.${material}) .${insidePlaceholderBackground},
-.${textfield}.${material}:not(.${outlined}) .${insidePlaceholderBackground} {
+.${textfield}:is(
+  .${native},
+  .${material}:not(.${outlined}),
+  .${hold}
+) .${insidePlaceholderBackground} {
   display: none;
 }
 .${textfield}.${material} .${insidePlaceholder} {
@@ -94,13 +106,29 @@ const base = /* css */ `
   color: transparent;
   z-index: 200;
 }
-.${textfield}.${material}:has(.${input}:focus) .${insidePlaceholderBackground},
-.${textfield}.${material}:has(.${input}:not(:placeholder-shown))
-  .${insidePlaceholderBackground} {
+.${textfield}.${material}:is(
+  :has(.${input}:focus),
+  :has(.${input}:not(:placeholder-shown))
+) .${insidePlaceholderBackground} {
   background-color: white;
 }
-.${textfield}.${material}:has(.${input}:not(:focus)) .${insidePlaceholder},
-.${textfield}.${material}:has(.${input}:placeholder-shown) .${insidePlaceholder} {
+.${textfield}.${material}:is(
+  :has(.${input}:not(:focus)),
+  :has(.${input}:placeholder-shown)
+) .${insidePlaceholder} {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  transform-origin: 0;
+  transition: all 0.3s;
+  z-index: 300;
+}
+.${textfield}.${hold}:is(
+  :has(.${input}:focus),
+  :has(.${input}:not(:focus)),
+  :has(.${input}:placeholder-shown)
+) .${insidePlaceholder} {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -118,17 +146,21 @@ const base = /* css */ `
   transition: all 0.3s;
   z-index: 300;
 }
-.${textfield}.${material}.${filled}:has(.${input}:focus) .${insidePlaceholder},
-.${textfield}.${material}.${filled}:has(.${input}:not(:placeholder-shown))
-  .${insidePlaceholder},
-.${textfield}.${material}.${standard}:has(.${input}:focus) .${insidePlaceholder},
-.${textfield}.${material}.${standard}:has(.${input}:not(:placeholder-shown))
-  .${insidePlaceholder} {
+.${textfield}.${hold}:has(.${input}:not(:placeholder-shown)) .${insidePlaceholder} {
+  display: none;
+}
+.${textfield}.${material}:is(
+  .${filled}:has(.${input}:focus),
+  .${filled}:has(.${input}:not(:placeholder-shown)),
+  .${standard}:has(.${input}:focus),
+  .${standard}:has(.${input}:not(:placeholder-shown))
+) .${insidePlaceholder} {
   top: 0;
 }
-.${textfield}.${material}.${outlined}:has(.${input}:focus) .${insidePlaceholder},
-.${textfield}.${material}.${outlined}:has(.${input}:not(:placeholder-shown))
-  .${insidePlaceholder} {
+.${textfield}.${material}.${outlined}:is(
+  :has(.${input}:focus),
+  :has(.${input}:not(:placeholder-shown))
+) .${insidePlaceholder} {
   top: -12px;
 }
 
@@ -307,7 +339,6 @@ const errorColorVariations = () => {
         color: ${code};
       }
     `
-
     variations.push(variation)
   }
 
@@ -327,8 +358,12 @@ export const textfieldStyles = () => {
 }
 export const textfieldClasses = {
   textfield,
-  addon,
+
+  native,
   material,
+  hold,
+
+  addon,
   input,
   inputArea,
   placeholder,
@@ -345,11 +380,14 @@ export const textfieldClasses = {
   validate,
   visibility,
   filled,
+
   outlined,
   standard,
   embedded,
+
   focusColor: focusColorClass,
   errorColor: errorColorClass
 }
 
+export type TextfieldSystem = 'native' | 'material' | 'hold'
 export type TextfieldVariant = 'filled' | 'outlined' | 'standard' | 'embedded'
